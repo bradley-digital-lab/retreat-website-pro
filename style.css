@@ -180,14 +180,32 @@ nav {
     font-family: var(--font-hero);
     font-weight: 800;
     font-size: 1.6rem;
+    color: var(--text-dark);
+    letter-spacing: -1px;
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: translateY(-1px);
+}
+
+.logo-accent {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.8rem;
     background: var(--primary-gradient);
     background-size: 400% 400%;
     background-attachment: fixed;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-decoration: none;
     animation: meshGradient 60s ease infinite;
+    letter-spacing: 0;
 }
 
 .logo-subtext {
