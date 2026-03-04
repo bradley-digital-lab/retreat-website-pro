@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Journeys | SSC Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Immediate preloader to prevent flash */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.8s ease-out;
+    }
+
+    .loader-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--vibrant-pink);
+      border-radius: 50%;
+      margin: 0 4px;
+      animation: dotPulse 1.5s infinite ease-in-out;
+    }
+
+    @keyframes dotPulse {
+
+      0%,
+      100% {
+        transform: scale(0.3);
+        opacity: 0.2;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Pixelation Engine (SVG Filter for Mystery Cards) -->
+  <svg style="position: absolute; width: 0; height: 0;">
+    <defs>
+      <filter id="pixelate" x="0" y="0">
+        <feFlood x="4" y="4" height="6" width="6" />
+        <feComposite width="12" height="12" />
+        <feTile result="a" />
+        <feComposite in="SourceGraphic" in2="a" operator="in" />
+        <feMorphology operator="dilate" radius="3" />
+      </filter>
+    </defs>
+  </svg>
+  <div id="preloader">
+    <div class="loader-dot" style="animation-delay: 0s"></div>
+    <div class="loader-dot" style="animation-delay: 0.2s"></div>
+    <div class="loader-dot" style="animation-delay: 0.4s"></div>
+  </div>
+  <div class="mesh-bg"></div>
+
+  <nav class="glass">
+    <div class="logo-wrapper">
+      <a href="#" class="logo">SSC <span class="logo-accent">Events</span></a>
+      <span class="logo-subtext">by spiritual soul centre</span>
+    </div>
+    <div class="nav-links">
+      <a href="journeys.html">Retreats</a>
+      <a href="announcements.html">Announcements</a>
+      <a href="index.html#team">Our Team</a>
+      <a href="index.html#testimonials">Voices</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <a href="index.html#contact" class="cta-btn">Join Us</a>
+  </nav>
+
+  <main>
+    <section id="retreats" style="padding-top: 15rem; min-height: 80vh; padding-bottom: 5rem;">
+      <div class="container">
+        <h2 class="reveal">Upcoming <span class="vibrant-text">Journeys</span></h2>
+
+        <div class="retreats-showcase">
+          <!-- Active Tier -->
+          <div class="retreat-group active-retreats reveal">
+            <span class="retreat-group-title">Active Residencies</span>
+
+            <!-- Greece Card -->
+            <div class="glass-card retreat-card">
+              <div class="image-container">
+                <a href="retreat-surrender.html" class="retreat-badge active-badge" style="text-decoration: none;">Book
+                  Now</a>
+                <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?q=80&w=2000&auto=format&fit=crop"
+                  alt="Aegean Sanctuary">
+              </div>
+              <div class="card-content">
+                <span class="tag">Release</span>
+                <h3>Surrender & Serenity</h3>
+                <p class="text-muted">Aegean horizons and white-washed tranquility. A sanctuary for deep release.</p>
+                <ul class="features">
+                  <li>Crystal Cove Yoga</li>
+                  <li>Olive Grove Meditation</li>
+                  <li>Aegean Soundscape</li>
+                </ul>
+                <div class="card-meta">
+                  <span class="date-tag vibrant-pink">SEP 2026</span>
+                  <span class="availability">15 Spots Available</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bali Card -->
+            <div class="glass-card retreat-card">
+              <div class="image-container">
+                <a href="retreat-bali.html" class="retreat-badge active-badge" style="text-decoration: none;">Book
+                  Now</a>
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=2070&auto=format&fit=crop"
+                  alt="Bali Sanctuary">
+              </div>
+              <div class="card-content">
+                <span class="tag">Sanctuary</span>
+                <h3>Bali Bloom</h3>
+                <p class="text-muted">Tropical serenity meets volcanic energy. 7 days of raw revitalization.</p>
+                <ul class="features">
+                  <li>Vedic Meditation</li>
+                  <li>Organic Alchemy Kitchen</li>
+                  <li>Jungle Immersion</li>
+                </ul>
+                <div class="card-meta">
+                  <span class="date-tag vibrant-teal">OCT 2026</span>
+                  <span class="availability">Registration Open</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pre-order Tier -->
+          <div class="retreat-group preorder-retreats reveal">
+            <span class="retreat-group-title">Advance Reservations</span>
+
+            <!-- Amalfi Card -->
+            <div class="glass-card retreat-card">
+              <div class="image-container">
+                <a href="retreat-amalfi.html" class="retreat-badge preorder-badge"
+                  style="text-decoration: none;">Register Interest</a>
+                <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=2070&auto=format&fit=crop"
+                  alt="Azure Coast">
+              </div>
+              <div class="card-content">
+                <span class="tag">Flow State</span>
+                <h3>Amalfi Flow</h3>
+                <p class="text-muted">Mediterranean breeze and mindful movement. The art of the slow life.</p>
+                <div class="card-meta">
+                  <span class="date-tag vibrant-pink">DATES TBC</span>
+                  <span class="availability">Pre-order Interest</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sahara Card -->
+            <div class="glass-card retreat-card">
+              <div class="image-container">
+                <a href="retreat-sahara.html" class="retreat-badge preorder-badge"
+                  style="text-decoration: none;">Register Interest</a>
+                <img src="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=2000&auto=format&fit=crop"
+                  alt="Sahara Desert Dunes">
+              </div>
+              <div class="card-content">
+                <span class="tag">Stillness</span>
+                <h3>Sahara Silence</h3>
+                <p class="text-muted">Vast dunes and celestial nights. A deep dive into absolute stillness.</p>
+                <div class="card-meta">
+                  <span class="date-tag vibrant-blue">DATES TBC</span>
+                  <span class="availability">Priority Access List</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TBA Tier -->
+          <div class="retreat-group tba-retreats reveal">
+            <span class="retreat-group-title">Upcoming Announcements</span>
+
+            <!-- TBA Card 1 -->
+            <div class="glass-card retreat-card">
+              <div class="image-container">
+                <div class="retreat-badge tba-badge">Mystery Kyoto</div>
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop"
+                  alt="Kyoto Zen">
+              </div>
+              <div class="card-content">
+                <h3>?? KYOTO</h3>
+              </div>
+            </div>
+
+            <!-- TBA Card 2 -->
+            <div class="glass-card retreat-card">
+              <div class="image-container">
+                <div class="retreat-badge tba-badge">Mystery Iceland</div>
+                <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=2059&auto=format&fit=crop"
+                  alt="Icelandic Core">
+              </div>
+              <div class="card-content">
+                <h3>?? ICELAND</h3>
+              </div>
+            </div>
+
+            <!-- TBA Card 3 -->
+            <div class="glass-card retreat-card">
+              <div class="image-container">
+                <div class="retreat-badge tba-badge">Mystery Amazon</div>
+                <img src="https://images.unsplash.com/photo-1549543048-8df05370f6bc?q=80&w=2000&auto=format&fit=crop"
+                  alt="Amazonian Breath">
+              </div>
+              <div class="card-content">
+                <h3>?? AMAZON</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer style="padding: 4rem 0; text-align: center; opacity: 0.6;">
+    <p>&copy; 2026 RE-BLOOM. All rights vibrant.</p>
+  </footer>
+
+  <!-- Mystery Alert Modal -->
+  <div id="mystery-modal" class="modal-overlay">
+    <div class="modal-content glass">
+      <div class="modal-icon">✨</div>
+      <h3 id="mystery-title">Patience, Traveler</h3>
+      <p id="mystery-message"></p>
+      <div class="modal-actions">
+        <button id="modal-cta" class="cta-btn">Join the Waitlist</button>
+        <button id="modal-close" class="text-link">Maybe later</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
