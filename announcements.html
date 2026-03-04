@@ -55,34 +55,101 @@
       text-align: center;
     }
 
+    /* Category Filter */
+    .category-filter {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 5rem;
+      flex-wrap: wrap;
+    }
+
+    .cat-btn {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 1.8rem;
+      border-radius: 100px;
+      font-family: var(--font-hero);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cat-btn:hover {
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .cat-btn.active {
+      background: var(--text-dark);
+      color: white;
+      border-color: var(--text-dark);
+    }
+
     .announcements-grid {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      max-width: 900px;
-      margin: -2rem auto 8rem;
+      gap: 1.2rem;
+      max-width: 850px;
+      margin: 0 auto 10rem;
     }
 
+    /* Elegant, slim card */
     .announcement-card {
-      padding: 2.5rem 3.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+      padding: 1.5rem 2.5rem;
       cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      /* Remove aggressive 3D tilt styles and use a simple elegant hover */
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      transform: translateZ(0);
+      /* Hardware accel without tilt */
+    }
+
+    /* Magic glowing edge effect */
+    .announcement-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--primary-gradient);
+      background-size: 400% 400%;
+      animation: meshGradient 20s ease infinite;
+      opacity: 0.6;
+      border-radius: 4px 0 0 4px;
+      transition: width 0.4s ease, opacity 0.4s ease;
     }
 
     .announcement-card:hover {
-      background: rgba(255, 255, 255, 0.6);
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.7) !important;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05) !important;
+      border-color: rgba(255, 255, 255, 1) !important;
+    }
+
+    .announcement-card:hover::before {
+      width: 6px;
+      opacity: 1;
+    }
+
+    .announcement-card.expanded {
+      background: rgba(255, 255, 255, 0.95) !important;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1) !important;
     }
 
     .announcement-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.5rem;
     }
 
     .announcement-header {
@@ -93,37 +160,45 @@
 
     .announcement-tag {
       font-weight: 800;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
+      opacity: 0.8;
     }
 
     .announcement-date {
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       font-family: var(--font-body);
-      font-weight: 600;
+      font-weight: 500;
+      letter-spacing: 0.05em;
     }
 
     .announcement-title {
       font-family: var(--font-hero);
-      font-size: 2.2rem;
-      line-height: 1.1;
+      font-size: 1.6rem;
+      line-height: 1.2;
       color: var(--text-dark);
-      letter-spacing: -1px;
+      letter-spacing: -0.5px;
+      margin: 0;
     }
 
     .announcement-expand-icon {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 300;
-      color: var(--text-muted);
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      color: rgba(0, 0, 0, 0.2);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
       line-height: 1;
+      margin-left: 2rem;
     }
 
     .announcement-card.expanded .announcement-expand-icon {
       transform: rotate(45deg);
-      color: var(--text-dark);
+      color: var(--vibrant-pink);
+    }
+
+    .announcement-card:hover .announcement-expand-icon {
+      color: rgba(0, 0, 0, 0.5);
     }
 
     .announcement-content-wrapper {
@@ -141,9 +216,9 @@
     }
 
     .announcement-content {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       color: var(--text-muted);
-      line-height: 1.8;
+      line-height: 1.7;
       font-family: var(--font-body);
       padding-top: 1.5rem;
       margin-top: 1.5rem;
@@ -154,13 +229,18 @@
       margin-bottom: 1rem;
     }
 
+    /* Filtering logic handled via JS, but hide class */
+    .announcement-card.hidden {
+      display: none !important;
+    }
+
     @media (max-width: 768px) {
       .announcement-card {
-        padding: 2rem;
+        padding: 1.5rem;
       }
 
       .announcement-title {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
       }
     }
   </style>
@@ -199,13 +279,22 @@
       </div>
     </section>
 
+    <div class="container">
+      <div class="category-filter reveal">
+        <button class="cat-btn active" data-filter="all">New Announcements</button>
+        <button class="cat-btn" data-filter="curator">Curators</button>
+        <button class="cat-btn" data-filter="location">Locations</button>
+        <button class="cat-btn" data-filter="community">Community</button>
+      </div>
+    </div>
+
     <section style="padding-top: 0;">
       <div class="container announcements-grid">
 
         <!-- Announcement 1 -->
-        <div class="glass-card announcement-card reveal">
+        <div class="glass-card announcement-card no-tilt reveal" data-category="location">
           <div class="announcement-meta">
-            <span class="announcement-tag vibrant-pink">New Location</span>
+            <span class="announcement-tag vibrant-pink">Location</span>
             <span class="announcement-date">March 15, 2026</span>
           </div>
           <div class="announcement-header">
@@ -227,9 +316,9 @@
         </div>
 
         <!-- Announcement 2 -->
-        <div class="glass-card announcement-card reveal">
+        <div class="glass-card announcement-card no-tilt reveal" data-category="curator">
           <div class="announcement-meta">
-            <span class="announcement-tag vibrant-teal">Curator Update</span>
+            <span class="announcement-tag vibrant-teal">Curator</span>
             <span class="announcement-date">February 28, 2026</span>
           </div>
           <div class="announcement-header">
@@ -250,7 +339,7 @@
         </div>
 
         <!-- Announcement 3 -->
-        <div class="glass-card announcement-card reveal">
+        <div class="glass-card announcement-card no-tilt reveal" data-category="community">
           <div class="announcement-meta">
             <span class="announcement-tag vibrant-yellow">Community</span>
             <span class="announcement-date">January 10, 2026</span>
@@ -274,6 +363,153 @@
           </div>
         </div>
 
+        <!-- Announcement 4 -->
+        <div class="glass-card announcement-card no-tilt reveal" data-category="location">
+          <div class="announcement-meta">
+            <span class="announcement-tag vibrant-blue">Location</span>
+            <span class="announcement-date">December 22, 2025</span>
+          </div>
+          <div class="announcement-header">
+            <h2 class="announcement-title">Amalfi Flow: Architecture Update</h2>
+            <div class="announcement-expand-icon">+</div>
+          </div>
+          <div class="announcement-content-wrapper">
+            <div class="announcement-content-inner">
+              <div class="announcement-content">
+                <p>The restoration of our 18th-century cliffside palazzo is moving flawlessly. We have successfully
+                  completed the acoustic treatment of the meditation hall, ensuring that every ocean wave reverberates
+                  gently into the space. We will begin taking advance reservations in mid-2026.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Announcement 5 -->
+        <div class="glass-card announcement-card no-tilt reveal" data-category="community">
+          <div class="announcement-meta">
+            <span class="announcement-tag vibrant-pink">Community</span>
+            <span class="announcement-date">November 15, 2025</span>
+          </div>
+          <div class="announcement-header">
+            <h2 class="announcement-title">Winter Solstice Global Meditation</h2>
+            <div class="announcement-expand-icon">+</div>
+          </div>
+          <div class="announcement-content-wrapper">
+            <div class="announcement-content-inner">
+              <div class="announcement-content">
+                <p>To our alumni around the world, please join Anya Hawthorn for a live-streamed somatic breathwork and
+                  global meditation session matching the solstice alignment. This free event is to anchor us back into
+                  our collective rhythm.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Announcement 6 -->
+        <div class="glass-card announcement-card no-tilt reveal" data-category="curator">
+          <div class="announcement-meta">
+            <span class="announcement-tag vibrant-teal">Curator</span>
+            <span class="announcement-date">October 05, 2025</span>
+          </div>
+          <div class="announcement-header">
+            <h2 class="announcement-title">Lori Garcia-Araya's New Menu Concept</h2>
+            <div class="announcement-expand-icon">+</div>
+          </div>
+          <div class="announcement-content-wrapper">
+            <div class="announcement-content-inner">
+              <div class="announcement-content">
+                <p>Executive Chef Lori Garcia-Araya has released her winter menu concept for our active residencies. The
+                  new menu focuses heavily on deep root alchemy to support immunity and grounding during the transition
+                  into colder months.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Announcement 7 -->
+        <div class="glass-card announcement-card no-tilt reveal" data-category="location">
+          <div class="announcement-meta">
+            <span class="announcement-tag vibrant-yellow">Location</span>
+            <span class="announcement-date">September 12, 2025</span>
+          </div>
+          <div class="announcement-header">
+            <h2 class="announcement-title">Bali Bloom Phase II Opened</h2>
+            <div class="announcement-expand-icon">+</div>
+          </div>
+          <div class="announcement-content-wrapper">
+            <div class="announcement-content-inner">
+              <div class="announcement-content">
+                <p>The jungle sanctuary expansion is complete. We've added four new suspended canopy suites deeper into
+                  the Ayung River valley, allowing for a completely remote experience for those seeking ultimate
+                  solitude. Registration for these specific suites is open.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Announcement 8 -->
+        <div class="glass-card announcement-card no-tilt reveal" data-category="location">
+          <div class="announcement-meta">
+            <span class="announcement-tag vibrant-blue">Location</span>
+            <span class="announcement-date">August 20, 2025</span>
+          </div>
+          <div class="announcement-header">
+            <h2 class="announcement-title">A Hint of Amazon Breath</h2>
+            <div class="announcement-expand-icon">+</div>
+          </div>
+          <div class="announcement-content-wrapper">
+            <div class="announcement-content-inner">
+              <div class="announcement-content">
+                <p>We are currently scouting a remote region of the Amazon rainforest for a new residency focused
+                  entirely on earth-connection and breathwork isolation. To those on the mailing list, keep your eyes
+                  open for more details dropping soon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Announcement 9 -->
+        <div class="glass-card announcement-card no-tilt reveal" data-category="curator">
+          <div class="announcement-meta">
+            <span class="announcement-tag vibrant-pink">Curator</span>
+            <span class="announcement-date">July 14, 2025</span>
+          </div>
+          <div class="announcement-header">
+            <h2 class="announcement-title">Bradley Clarkson's Soundscape Release</h2>
+            <div class="announcement-expand-icon">+</div>
+          </div>
+          <div class="announcement-content-wrapper">
+            <div class="announcement-content-inner">
+              <div class="announcement-content">
+                <p>For those who wish to return to the sanctuary from home, Bradley has officially published a 2-hour
+                  binaural soundscape track. Recorded live during the Spring Equinox at our Crete location, the tracks
+                  are available exclusively to our alumni network online.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Announcement 10 -->
+        <div class="glass-card announcement-card no-tilt reveal" data-category="community">
+          <div class="announcement-meta">
+            <span class="announcement-tag vibrant-teal">Community</span>
+            <span class="announcement-date">June 02, 2025</span>
+          </div>
+          <div class="announcement-header">
+            <h2 class="announcement-title">Re-Bloom Foundation Launch</h2>
+            <div class="announcement-expand-icon">+</div>
+          </div>
+          <div class="announcement-content-wrapper">
+            <div class="announcement-content-inner">
+              <div class="announcement-content">
+                <p>We are proud to announce the formal launch of the Re-Bloom Foundation, dedicating 10% of all retreat
+                  proceeds toward preserving the environmental and indigenous ecosystems where our sanctuaries are
+                  hosted.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -288,10 +524,13 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const cards = document.querySelectorAll('.announcement-card');
+      const filterBtns = document.querySelectorAll('.cat-btn');
+
+      // Accordion functionality
       cards.forEach(card => {
         card.addEventListener('click', (e) => {
           // Ignore clicks on links/buttons
-          if (e.target.tagName.toLowerCase() === 'a') return;
+          if (e.target.tagName.toLowerCase() === 'a' || e.target.tagName.toLowerCase() === 'button') return;
 
           // Toggle this card
           const isExpanded = card.classList.contains('expanded');
@@ -302,6 +541,39 @@
           if (!isExpanded) {
             card.classList.add('expanded');
           }
+
+          // Refresh ScrollTrigger so pages adjust height properly
+          setTimeout(() => ScrollTrigger.refresh(), 600);
+        });
+      });
+
+      // Filter functionality
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active class from all buttons
+          filterBtns.forEach(b => b.classList.remove('active'));
+          // Add active class to clicked button
+          btn.classList.add('active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          cards.forEach(card => {
+            // Close expanded cards on filter change
+            card.classList.remove('expanded');
+
+            if (filterValue === 'all') {
+              card.classList.remove('hidden');
+            } else {
+              if (card.getAttribute('data-category') === filterValue) {
+                card.classList.remove('hidden');
+              } else {
+                card.classList.add('hidden');
+              }
+            }
+          });
+
+          // Refresh animation triggers after DOM reflow
+          setTimeout(() => ScrollTrigger.refresh(), 100);
         });
       });
     });

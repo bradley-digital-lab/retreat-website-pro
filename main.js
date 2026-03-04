@@ -77,7 +77,7 @@ window.addEventListener('load', () => {
 
     // 4. Universal 3D Tilt Effect - Desktop Only (hover-capable devices)
     mm.add("(hover: hover)", () => {
-        document.querySelectorAll('.glass-card:not(.contact-form)').forEach(card => {
+        document.querySelectorAll('.glass-card:not(.contact-form):not(.no-tilt)').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
