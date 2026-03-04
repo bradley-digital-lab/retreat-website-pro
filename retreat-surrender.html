@@ -188,20 +188,90 @@
             border-radius: 40px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            /* fallback shadow */
             position: relative;
             transform: translateZ(0);
-            /* Force hardware accel for rounding */
+            cursor: crosshair;
+        }
+
+        /* Hover Overlay Background */
+        .gallery-item .overlay-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 60%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: 1;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+            position: relative;
+            z-index: 0;
+        }
+
+        .gallery-item:hover .overlay-gradient {
+            opacity: 1;
         }
 
         .gallery-item:hover img {
             transform: scale(1.05);
+            /* filter: brightness(0.9); */
+        }
+
+        /* Text overlay container */
+        .gallery-info {
+            position: absolute;
+            bottom: 3rem;
+            left: 3rem;
+            right: 3rem;
+            z-index: 2;
+            color: white;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: 0.05s;
+        }
+
+        .gallery-item:hover .gallery-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .gallery-info h4 {
+            font-family: var(--font-hero);
+            font-size: 2.2rem;
+            margin: 0 0 0.5rem 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            letter-spacing: -0.5px;
+        }
+
+        .gallery-info p {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            margin: 0;
+            opacity: 0.95;
+            line-height: 1.5;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         /* Asymmetric Layout */
@@ -383,26 +453,54 @@
             </div>
         </section>
 
-        <!-- Beautiful Masonry Gallery -->
-        <section class="container retreat-gallery reveal">
-            <div class="gallery-header">
+        <!-- Beautiful Editorial Gallery -->
+        <section class="container retreat-gallery">
+            <div class="gallery-header reveal">
                 <h2>The <span class="vibrant-teal">Sanctuary</span> in Pictures</h2>
                 <p style="opacity: 0.6; font-size: 1.1rem; max-width: 600px; margin: 0 auto; margin-top: 1rem;">
-                    Glimpses into the spaces where your profound transformation will unfold.
+                    Glimpses into the spaces where your profound transformation will unfold. Hover to discover.
                 </p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item reveal">
-                    <img src="images/surrender-sanctuary.jpg" alt="Villa at Night">
+                <div class="gallery-item image-reveal-mask">
+                    <img src="images/surrender-sanctuary.jpg" class="parallax-img" alt="Villa at Night">
+                    <div class="overlay-gradient"></div>
+                    <div class="gallery-info">
+                        <span class="gallery-tag">Exterior</span>
+                        <h4>The Infinity Edge</h4>
+                        <p>Where the heated waters meet the absolute stillness of the Aegean horizon under the expansive
+                            Mediterranean night sky.</p>
+                    </div>
                 </div>
-                <div class="gallery-item reveal">
-                    <img src="images/surrender-gal-2.jpg" alt="Cliffside Private Villa">
+                <div class="gallery-item image-reveal-mask">
+                    <img src="images/surrender-gal-2.jpg" class="parallax-img" alt="Cliffside Private Villa">
+                    <div class="overlay-gradient"></div>
+                    <div class="gallery-info">
+                        <span class="gallery-tag">Architecture</span>
+                        <h4>White-Washed Serenity</h4>
+                        <p>Minimalist stone architecture designed to cool the body and calm the overactive mind.</p>
+                    </div>
                 </div>
-                <div class="gallery-item reveal">
-                    <img src="images/surrender-gal-3.jpg" alt="Expansive Nature Surroundings">
+                <div class="gallery-item image-reveal-mask">
+                    <img src="images/surrender-gal-3.jpg" class="parallax-img" alt="Expansive Nature Surroundings">
+                    <div class="overlay-gradient"></div>
+                    <div class="gallery-info">
+                        <span class="gallery-tag">Grounding</span>
+                        <h4>The Olive Groves</h4>
+                        <p>Centuries-old groves providing the perfect shaded sanctuary for walking meditations and
+                            connection to the earth.</p>
+                    </div>
                 </div>
-                <div class="gallery-item reveal">
-                    <img src="images/surrender-gal-4.jpg" alt="Cloud Ceiling Yoga Studio">
+                <div class="gallery-item image-reveal-mask">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2000&auto=format&fit=crop"
+                        class="parallax-img" alt="Spa and Wellness Center">
+                    <div class="overlay-gradient"></div>
+                    <div class="gallery-info">
+                        <span class="gallery-tag">Rejuvenation</span>
+                        <h4>The Cave Spa</h4>
+                        <p>An acoustic marvel built into the cliff face, hosting our signature multi-instrumental sound
+                            healing sessions.</p>
+                    </div>
                 </div>
             </div>
         </section>
