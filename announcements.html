@@ -34,10 +34,13 @@
     }
 
     @keyframes dotPulse {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: scale(0.3);
         opacity: 0.2;
       }
+
       50% {
         transform: scale(1.2);
         opacity: 1;
@@ -56,25 +59,37 @@
     .announcements-grid {
       display: flex;
       flex-direction: column;
-      gap: 4rem;
+      gap: 1.5rem;
       max-width: 900px;
       margin: -2rem auto 8rem;
     }
 
     .announcement-card {
-      padding: 4rem;
+      padding: 2.5rem 3.5rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 0;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .announcement-card:hover {
+      background: rgba(255, 255, 255, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
     }
 
     .announcement-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      padding-bottom: 1.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .announcement-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .announcement-tag {
@@ -93,10 +108,37 @@
 
     .announcement-title {
       font-family: var(--font-hero);
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       line-height: 1.1;
       color: var(--text-dark);
       letter-spacing: -1px;
+    }
+
+    .announcement-expand-icon {
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      line-height: 1;
+    }
+
+    .announcement-card.expanded .announcement-expand-icon {
+      transform: rotate(45deg);
+      color: var(--text-dark);
+    }
+
+    .announcement-content-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .announcement-card.expanded .announcement-content-wrapper {
+      grid-template-rows: 1fr;
+    }
+
+    .announcement-content-inner {
+      overflow: hidden;
     }
 
     .announcement-content {
@@ -104,10 +146,23 @@
       color: var(--text-muted);
       line-height: 1.8;
       font-family: var(--font-body);
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
     }
-    
+
     .announcement-content p {
-        margin-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .announcement-card {
+        padding: 2rem;
+      }
+
+      .announcement-title {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
@@ -138,26 +193,38 @@
   <main>
     <section class="announcements-hero">
       <div class="container hero-content">
-        <h1 class="hero-title reveal" style="font-size: clamp(3rem, 8vw, 6rem);">The <span class="vibrant-blue">Latest.</span></h1>
-        <p class="hero-subtext reveal" style="transition-delay: 0.1s;">Dispatches from the sanctuary. New residencies, curator updates, and stories.</p>
+        <h1 class="hero-title reveal" style="font-size: clamp(3rem, 8vw, 6rem);">The <span
+            class="vibrant-blue">Latest.</span></h1>
+        <p class="hero-subtext reveal" style="transition-delay: 0.1s;">Dispatches from the sanctuary. New residencies,
+          curator updates, and stories.</p>
       </div>
     </section>
 
     <section style="padding-top: 0;">
       <div class="container announcements-grid">
-        
+
         <!-- Announcement 1 -->
         <div class="glass-card announcement-card reveal">
           <div class="announcement-meta">
             <span class="announcement-tag vibrant-pink">New Location</span>
             <span class="announcement-date">March 15, 2026</span>
           </div>
-          <h2 class="announcement-title">Unveiling our Kyoto Zen Residency</h2>
-          <div class="announcement-content">
-            <p>We are thrilled to finally announce our expansion into the ancient capital of Japan. Starting Spring 2027, our new Kyoto Zen residency will offer an unprecedented immersion into discipline, silence, and traditional tea ceremonies. Set against the backdrop of an 800-year-old temple, this retreat will challenge and elevate your mental fortitude.</p>
-            <p>The pre-order list opens next month. Watch this space.</p>
+          <div class="announcement-header">
+            <h2 class="announcement-title">Unveiling our Kyoto Zen Residency</h2>
+            <div class="announcement-expand-icon">+</div>
           </div>
-          <a href="#" class="cta-btn" style="align-self: flex-start; margin-top: 1rem;">View Details</a>
+          <div class="announcement-content-wrapper">
+            <div class="announcement-content-inner">
+              <div class="announcement-content">
+                <p>We are thrilled to finally announce our expansion into the ancient capital of Japan. Starting Spring
+                  2027, our new Kyoto Zen residency will offer an unprecedented immersion into discipline, silence, and
+                  traditional tea ceremonies. Set against the backdrop of an 800-year-old temple, this retreat will
+                  challenge and elevate your mental fortitude.</p>
+                <p>The pre-order list opens next month. Watch this space.</p>
+                <a href="#" class="cta-btn" style="margin-top: 1rem; display: inline-block;">View Details</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Announcement 2 -->
@@ -166,10 +233,20 @@
             <span class="announcement-tag vibrant-teal">Curator Update</span>
             <span class="announcement-date">February 28, 2026</span>
           </div>
-          <h2 class="announcement-title">Welcoming Dr. Aris Thorne</h2>
-          <div class="announcement-content">
-            <p>Re-Bloom is evolving its approach to neurological recovery and flow state induction. Please join us in welcoming Dr. Aris Thorne, a leading neuroscientist, to our curatorial board. Dr. Thorne will be integrating bio-feedback technology discreetly into our 2026 residency programs, offering a quantitative approach to spiritual reset.</p>
-            <p>His inaugural workshop will be held at the Amalfi Flow retreat.</p>
+          <div class="announcement-header">
+            <h2 class="announcement-title">Welcoming Dr. Aris Thorne</h2>
+            <div class="announcement-expand-icon">+</div>
+          </div>
+          <div class="announcement-content-wrapper">
+            <div class="announcement-content-inner">
+              <div class="announcement-content">
+                <p>Re-Bloom is evolving its approach to neurological recovery and flow state induction. Please join us
+                  in welcoming Dr. Aris Thorne, a leading neuroscientist, to our curatorial board. Dr. Thorne will be
+                  integrating bio-feedback technology discreetly into our 2026 residency programs, offering a
+                  quantitative approach to spiritual reset.</p>
+                <p>His inaugural workshop will be held at the Amalfi Flow retreat.</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -179,12 +256,23 @@
             <span class="announcement-tag vibrant-yellow">Community</span>
             <span class="announcement-date">January 10, 2026</span>
           </div>
-          <h2 class="announcement-title">The 'Surrender' Scholarship</h2>
-          <div class="announcement-content">
-            <p>True transformation should be accessible to those who need it most. We are launching the Surrender Scholarship program, which covers full access to one individual per retreat, fully funded by our alumni network. We believe that elevating one soul elevates all.</p>
-            <p>Applications for the Aegean Sanctuary scholarship are now open.</p>
+          <div class="announcement-header">
+            <h2 class="announcement-title">The 'Surrender' Scholarship</h2>
+            <div class="announcement-expand-icon">+</div>
           </div>
-          <a href="#" style="color: var(--vibrant-pink); align-self: flex-start; margin-top: 1rem; font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--vibrant-pink); padding-bottom: 2px;">Apply Now →</a>
+          <div class="announcement-content-wrapper">
+            <div class="announcement-content-inner">
+              <div class="announcement-content">
+                <p>True transformation should be accessible to those who need it most. We are launching the Surrender
+                  Scholarship program, which covers full access to one individual per retreat, fully funded by our
+                  alumni network. We believe that elevating one soul elevates all.</p>
+                <p>Applications for the Aegean Sanctuary scholarship are now open.</p>
+                <a href="#"
+                  style="color: var(--vibrant-pink); margin-top: 1rem; display: inline-block; font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--vibrant-pink); padding-bottom: 2px;">Apply
+                  Now →</a>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -198,6 +286,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll('.announcement-card');
+      cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          // Ignore clicks on links/buttons
+          if (e.target.tagName.toLowerCase() === 'a') return;
+
+          // Toggle this card
+          const isExpanded = card.classList.contains('expanded');
+
+          // Collapse others
+          cards.forEach(c => c.classList.remove('expanded'));
+
+          if (!isExpanded) {
+            card.classList.add('expanded');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
