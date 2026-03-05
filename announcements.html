@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Announcements | Retreat Bloom</title>
+  <title>Announcements | SSC Events</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -93,41 +93,61 @@
       border-color: var(--text-dark);
     }
 
+    /* Modern Announcements Grid Layout */
     .announcements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto 10rem;
+      padding: 0 2rem;
+    }
+
+    /* Premium Card Design */
+    .announcement-card {
+      padding: 3rem;
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
-      max-width: 850px;
-      margin: 0 auto 10rem;
-    }
-
-    /* Elegant, slim card */
-    .announcement-card {
-      padding: 1.5rem 2.5rem;
-      cursor: pointer;
+      justify-content: space-between;
+      min-height: 400px;
       position: relative;
       overflow: hidden;
-      /* Remove aggressive 3D tilt styles and use a simple elegant hover */
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      transform: translateZ(0);
-      /* Hardware accel without tilt */
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(0);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
     }
 
-    /* Ambient Typography Visuals */
     .announcement-card::before {
-      content: attr(data-category);
+      content: '';
       position: absolute;
-      right: -20px;
-      bottom: -40px;
-      font-family: var(--font-serif);
-      font-size: 8rem;
-      font-style: italic;
-      color: var(--text-dark);
-      opacity: 0.03;
-      pointer-events: none;
-      text-transform: capitalize;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, color 0.8s ease;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
       z-index: 0;
+      pointer-events: none;
+    }
+
+    .announcement-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+      border-color: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .announcement-card:hover::before {
+      opacity: 1;
     }
 
     .announcement-card>* {
@@ -135,34 +155,11 @@
       z-index: 1;
     }
 
-    .announcement-card:hover {
-      background: rgba(255, 255, 255, 0.7) !important;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05) !important;
-      border-color: rgba(255, 255, 255, 1) !important;
-    }
-
-    .announcement-card:hover::before {
-      transform: scale(1.05) translate(-10px, -10px);
-      color: var(--text-dark);
-      opacity: 0.05;
-    }
-
-    .announcement-card.expanded {
-      background: rgba(255, 255, 255, 0.95) !important;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1) !important;
-    }
-
     .announcement-meta {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
-
-    .announcement-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
     }
 
     .announcement-tag {
@@ -170,7 +167,8 @@
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.25em;
-      opacity: 0.8;
+      opacity: 0.9;
+      display: inline-block;
     }
 
     .announcement-date {
@@ -183,71 +181,126 @@
 
     .announcement-title {
       font-family: var(--font-hero);
-      font-size: 1.6rem;
-      line-height: 1.2;
+      font-size: 2.2rem;
+      line-height: 1.1;
       color: var(--text-dark);
-      letter-spacing: -0.5px;
-      margin: 0;
+      letter-spacing: -1px;
+      margin-top: auto;
+      /* Pushes title to bottom */
+      margin-bottom: 1.5rem;
+      transition: color 0.4s ease;
     }
 
-    .announcement-expand-icon {
-      font-size: 2rem;
-      font-weight: 300;
-      color: rgba(0, 0, 0, 0.2);
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
-      line-height: 1;
-      margin-left: 2rem;
-    }
-
-    .announcement-card.expanded .announcement-expand-icon {
-      transform: rotate(45deg);
-      color: var(--vibrant-pink);
-    }
-
-    .announcement-card:hover .announcement-expand-icon {
-      color: rgba(0, 0, 0, 0.5);
-    }
-
-    .announcement-content-wrapper {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .announcement-card.expanded .announcement-content-wrapper {
-      grid-template-rows: 1fr;
-    }
-
-    .announcement-content-inner {
-      overflow: hidden;
-    }
-
-    .announcement-content {
-      font-size: 1.05rem;
+    .announcement-excerpt {
+      font-size: 1.1rem;
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.6;
       font-family: var(--font-body);
-      padding-top: 1.5rem;
-      margin-top: 1.5rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem;
+      right: 3rem;
     }
 
-    .announcement-content p {
-      margin-bottom: 1rem;
+    .announcement-card:hover .announcement-title {
+      transform: translateY(-60px);
     }
 
-    /* Filtering logic handled via JS, but hide class */
+    .announcement-card:hover .announcement-excerpt {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .read-more-indicator {
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--text-dark);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.5) rotate(-45deg);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .announcement-card:hover .read-more-indicator {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+
+    /* Abstract decorative shapes inside cards */
+    .card-shape {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      filter: blur(40px);
+      z-index: 0;
+      opacity: 0.15;
+      transition: all 0.8s ease;
+    }
+
+    .announcement-card:hover .card-shape {
+      opacity: 0.3;
+      transform: scale(1.2);
+    }
+
+    .shape-1 {
+      top: -50px;
+      right: -50px;
+      background: var(--vibrant-pink);
+    }
+
+    .shape-2 {
+      bottom: -50px;
+      left: -50px;
+      background: var(--vibrant-teal);
+    }
+
+    .shape-3 {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--vibrant-yellow);
+    }
+
+    /* Filtering logic */
     .announcement-card.hidden {
       display: none !important;
     }
 
     @media (max-width: 768px) {
-      .announcement-card {
-        padding: 1.5rem;
+      .announcements-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
       }
 
-      .announcement-title {
-        font-size: 1.3rem;
+      .announcement-card {
+        padding: 2rem;
+        min-height: 350px;
+      }
+
+      .announcement-excerpt {
+        left: 2rem;
+        right: 2rem;
+        bottom: 2rem;
+      }
+
+      .read-more-indicator {
+        top: 2rem;
+        right: 2rem;
       }
     }
   </style>
@@ -281,7 +334,7 @@
       <div class="container hero-content">
         <h1 class="hero-title" style="font-size: clamp(3rem, 8vw, 6rem);">The <span class="vibrant-blue">Latest.</span>
         </h1>
-        <p class="hero-subtext">Dispatches from the sanctuary. New residencies,
+        <p class="hero-subtext">Dispatches from SSC Events. New gatherings,
           curator updates, and stories.</p>
       </div>
     </section>
@@ -299,308 +352,185 @@
       <div class="container announcements-grid">
 
         <!-- Announcement 1 -->
-        <div class="glass-card announcement-card no-tilt reveal" data-category="location">
+        <a href="#" class="announcement-card reveal" data-category="location">
+          <div class="card-shape shape-1"></div>
+          <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
-            <span class="announcement-tag vibrant-pink">Location</span>
+            <span class="announcement-tag" style="color: var(--vibrant-pink);">Location</span>
             <span class="announcement-date">March 15, 2026</span>
           </div>
-          <div class="announcement-header">
-            <h2 class="announcement-title">Unveiling our Kyoto Zen Residency</h2>
-            <div class="announcement-expand-icon">+</div>
-          </div>
-          <div class="announcement-content-wrapper">
-            <div class="announcement-content-inner">
-              <div class="announcement-content">
-                <p>We are thrilled to finally announce our expansion into the ancient capital of Japan. Starting Spring
-                  2027, our new Kyoto Zen residency will offer an unprecedented immersion into discipline, silence, and
-                  traditional tea ceremonies. Set against the backdrop of an 800-year-old temple, this retreat will
-                  challenge and elevate your mental fortitude.</p>
-                <p>The pre-order list opens next month. Watch this space.</p>
-                <a href="#" class="cta-btn" style="margin-top: 1rem; display: inline-block;">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
+          <h2 class="announcement-title">The Amalfi Flow Architecture Update</h2>
+          <p class="announcement-excerpt">The restoration of our 18th-century cliffside palazzo is moving flawlessly. We
+            have successfully completed the acoustic treatment of the main hall...</p>
+        </a>
 
         <!-- Announcement 2 -->
-        <div class="glass-card announcement-card no-tilt reveal" data-category="curator">
+        <a href="#" class="announcement-card reveal" data-category="curator">
+          <div class="card-shape shape-2"></div>
+          <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
-            <span class="announcement-tag vibrant-teal">Curator</span>
+            <span class="announcement-tag" style="color: var(--vibrant-teal);">Curator</span>
             <span class="announcement-date">February 28, 2026</span>
           </div>
-          <div class="announcement-header">
-            <h2 class="announcement-title">Welcoming Dr. Aris Thorne</h2>
-            <div class="announcement-expand-icon">+</div>
-          </div>
-          <div class="announcement-content-wrapper">
-            <div class="announcement-content-inner">
-              <div class="announcement-content">
-                <p>Re-Bloom is evolving its approach to neurological recovery and flow state induction. Please join us
-                  in welcoming Dr. Aris Thorne, a leading neuroscientist, to our curatorial board. Dr. Thorne will be
-                  integrating bio-feedback technology discreetly into our 2026 residency programs, offering a
-                  quantitative approach to spiritual reset.</p>
-                <p>His inaugural workshop will be held at the Amalfi Flow retreat.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+          <h2 class="announcement-title">Welcoming Somatic Guide Aris Thorne</h2>
+          <p class="announcement-excerpt">SSC Events is evolving its approach to neurological recovery and flow state
+            induction. Please join us in welcoming Aris Thorne to our curatorial board...</p>
+        </a>
 
         <!-- Announcement 3 -->
-        <div class="glass-card announcement-card no-tilt reveal" data-category="community">
+        <a href="#" class="announcement-card reveal" data-category="community">
+          <div class="card-shape shape-3"></div>
+          <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
-            <span class="announcement-tag vibrant-yellow">Community</span>
+            <span class="announcement-tag" style="color: var(--vibrant-yellow);">Community</span>
             <span class="announcement-date">January 10, 2026</span>
           </div>
-          <div class="announcement-header">
-            <h2 class="announcement-title">The 'Surrender' Scholarship</h2>
-            <div class="announcement-expand-icon">+</div>
-          </div>
-          <div class="announcement-content-wrapper">
-            <div class="announcement-content-inner">
-              <div class="announcement-content">
-                <p>True transformation should be accessible to those who need it most. We are launching the Surrender
-                  Scholarship program, which covers full access to one individual per retreat, fully funded by our
-                  alumni network. We believe that elevating one soul elevates all.</p>
-                <p>Applications for the Aegean Sanctuary scholarship are now open.</p>
-                <a href="#"
-                  style="color: var(--vibrant-pink); margin-top: 1rem; display: inline-block; font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--vibrant-pink); padding-bottom: 2px;">Apply
-                  Now →</a>
-              </div>
-            </div>
-          </div>
-        </div>
+          <h2 class="announcement-title">The 'Surrender' Scholarship Program</h2>
+          <p class="announcement-excerpt">True transformation should be accessible. We are launching the Surrender
+            Scholarship program, providing full access to one individual per retreat...</p>
+        </a>
 
         <!-- Announcement 4 -->
-        <div class="glass-card announcement-card no-tilt reveal" data-category="location">
+        <a href="#" class="announcement-card reveal" data-category="location">
+          <div class="card-shape shape-2"></div>
+          <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
-            <span class="announcement-tag vibrant-blue">Location</span>
+            <span class="announcement-tag" style="color: var(--vibrant-blue);">Location</span>
             <span class="announcement-date">December 22, 2025</span>
           </div>
-          <div class="announcement-header">
-            <h2 class="announcement-title">Amalfi Flow: Architecture Update</h2>
-            <div class="announcement-expand-icon">+</div>
-          </div>
-          <div class="announcement-content-wrapper">
-            <div class="announcement-content-inner">
-              <div class="announcement-content">
-                <p>The restoration of our 18th-century cliffside palazzo is moving flawlessly. We have successfully
-                  completed the acoustic treatment of the meditation hall, ensuring that every ocean wave reverberates
-                  gently into the space. We will begin taking advance reservations in mid-2026.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+          <h2 class="announcement-title">A Hint of Amazon Breath</h2>
+          <p class="announcement-excerpt">We are currently scouting a remote region of the Amazon rainforest for a new
+            gathering focused entirely on earth-connection and breathwork isolation...</p>
+        </a>
 
         <!-- Announcement 5 -->
-        <div class="glass-card announcement-card no-tilt reveal" data-category="community">
+        <a href="#" class="announcement-card reveal" data-category="community">
+          <div class="card-shape shape-1"></div>
+          <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
-            <span class="announcement-tag vibrant-pink">Community</span>
+            <span class="announcement-tag" style="color: var(--vibrant-pink);">Community</span>
             <span class="announcement-date">November 15, 2025</span>
           </div>
-          <div class="announcement-header">
-            <h2 class="announcement-title">Winter Solstice Global Meditation</h2>
-            <div class="announcement-expand-icon">+</div>
-          </div>
-          <div class="announcement-content-wrapper">
-            <div class="announcement-content-inner">
-              <div class="announcement-content">
-                <p>To our alumni around the world, please join Anya Hawthorn for a live-streamed somatic breathwork and
-                  global meditation session matching the solstice alignment. This free event is to anchor us back into
-                  our collective rhythm.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+          <h2 class="announcement-title">Winter Solstice Global Meditation</h2>
+          <p class="announcement-excerpt">To our alumni around the world, please join Anya Hawthorn for a live-streamed
+            somatic breathwork session matching the solstice alignment...</p>
+        </a>
 
         <!-- Announcement 6 -->
-        <div class="glass-card announcement-card no-tilt reveal" data-category="curator">
+        <a href="#" class="announcement-card reveal" data-category="curator">
+          <div class="card-shape shape-3"></div>
+          <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
-            <span class="announcement-tag vibrant-teal">Curator</span>
+            <span class="announcement-tag" style="color: var(--vibrant-teal);">Curator</span>
             <span class="announcement-date">October 05, 2025</span>
           </div>
-          <div class="announcement-header">
-            <h2 class="announcement-title">Lori Garcia-Araya's New Menu Concept</h2>
-            <div class="announcement-expand-icon">+</div>
-          </div>
-          <div class="announcement-content-wrapper">
-            <div class="announcement-content-inner">
-              <div class="announcement-content">
-                <p>Executive Chef Lori Garcia-Araya has released her winter menu concept for our active residencies. The
-                  new menu focuses heavily on deep root alchemy to support immunity and grounding during the transition
-                  into colder months.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Announcement 7 -->
-        <div class="glass-card announcement-card no-tilt reveal" data-category="location">
-          <div class="announcement-meta">
-            <span class="announcement-tag vibrant-yellow">Location</span>
-            <span class="announcement-date">September 12, 2025</span>
-          </div>
-          <div class="announcement-header">
-            <h2 class="announcement-title">Bali Bloom Phase II Opened</h2>
-            <div class="announcement-expand-icon">+</div>
-          </div>
-          <div class="announcement-content-wrapper">
-            <div class="announcement-content-inner">
-              <div class="announcement-content">
-                <p>The jungle sanctuary expansion is complete. We've added four new suspended canopy suites deeper into
-                  the Ayung River valley, allowing for a completely remote experience for those seeking ultimate
-                  solitude. Registration for these specific suites is open.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Announcement 8 -->
-        <div class="glass-card announcement-card no-tilt reveal" data-category="location">
-          <div class="announcement-meta">
-            <span class="announcement-tag vibrant-blue">Location</span>
-            <span class="announcement-date">August 20, 2025</span>
-          </div>
-          <div class="announcement-header">
-            <h2 class="announcement-title">A Hint of Amazon Breath</h2>
-            <div class="announcement-expand-icon">+</div>
-          </div>
-          <div class="announcement-content-wrapper">
-            <div class="announcement-content-inner">
-              <div class="announcement-content">
-                <p>We are currently scouting a remote region of the Amazon rainforest for a new residency focused
-                  entirely on earth-connection and breathwork isolation. To those on the mailing list, keep your eyes
-                  open for more details dropping soon.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Announcement 9 -->
-        <div class="glass-card announcement-card no-tilt reveal" data-category="curator">
-          <div class="announcement-meta">
-            <span class="announcement-tag vibrant-pink">Curator</span>
-            <span class="announcement-date">July 14, 2025</span>
-          </div>
-          <div class="announcement-header">
-            <h2 class="announcement-title">Bradley Clarkson's Soundscape Release</h2>
-            <div class="announcement-expand-icon">+</div>
-          </div>
-          <div class="announcement-content-wrapper">
-            <div class="announcement-content-inner">
-              <div class="announcement-content">
-                <p>For those who wish to return to the sanctuary from home, Bradley has officially published a 2-hour
-                  binaural soundscape track. Recorded live during the Spring Equinox at our Crete location, the tracks
-                  are available exclusively to our alumni network online.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Announcement 10 -->
-        <div class="glass-card announcement-card no-tilt reveal" data-category="community">
-          <div class="announcement-meta">
-            <span class="announcement-tag vibrant-teal">Community</span>
-            <span class="announcement-date">June 02, 2025</span>
-          </div>
-          <div class="announcement-header">
-            <h2 class="announcement-title">Re-Bloom Foundation Launch</h2>
-            <div class="announcement-expand-icon">+</div>
-          </div>
-          <div class="announcement-content-wrapper">
-            <div class="announcement-content-inner">
-              <div class="announcement-content">
-                <p>We are proud to announce the formal launch of the Re-Bloom Foundation, dedicating 10% of all retreat
-                  proceeds toward preserving the environmental and indigenous ecosystems where our sanctuaries are
-                  hosted.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
+          <h2 class="announcement-title">Lori Garcia-Araya's New Menu Concept</h2>
+          <p class="announcement-excerpt">Executive Chef Lori Garcia-Araya has released her winter menu concept for our
+            active retreats. The new menu focuses heavily on deep root alchemy...</p>
+        </a>
       </div>
     </section>
 
     <section class="container" style="padding-top: 5rem; padding-bottom: 5rem; text-align: center;">
-      <div class="glass-card reveal no-tilt"
-        style="max-width: 650px; margin: 0 auto; padding: 4rem 3rem; border-radius: 40px;">
+      <div class="glass-card reveal"
+        style="max-width: 650px; margin: 0 auto; padding: 4rem 3rem; border-radius: 40px; border-top: 1px solid rgba(255,255,255,0.6);">
         <h2
-          style="font-family: var(--font-hero); font-size: 2rem; margin-bottom: 1rem; color: var(--text-dark); letter-spacing: -1px;">
-          Stay Connected</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1rem; line-height: 1.6;">Receive priority
-          notifications the moment new residencies and curatorial updates drop.</p>
+          style="font-family: var(--font-hero); font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-dark); letter-spacing: -1px;">
+          Join the Circle</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.1rem; line-height: 1.6;">Receive
+          priority
+          notifications the moment new gatherings and curatorial updates drop.</p>
         <form style="display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap;"
           onsubmit="event.preventDefault(); alert('You have been added to the inner circle. Welcome.'); this.reset();">
           <div style="flex: 1; min-width: 250px; max-width: 350px;">
             <input type="email" placeholder="Your best email" required
-              style="margin-bottom: 0; padding: 1.2rem 1.8rem; width: 100%;">
+              style="margin-bottom: 0; padding: 1.2rem 1.8rem; width: 100%; border-radius: 100px; border: 1px solid rgba(0,0,0,0.1); background: rgba(255,255,255,0.8);">
           </div>
           <button type="submit" class="cta-btn"
-            style="border: none; cursor: pointer; padding: 1.2rem 2.5rem; font-size: 0.95rem;">Notify Me</button>
+            style="border: none; cursor: pointer; padding: 1.2rem 2.8rem; font-size: 1rem; border-radius: 100px; background: var(--text-dark); color: white;">Notify
+            Me</button>
         </form>
       </div>
     </section>
   </main>
 
   <footer style="padding: 4rem 0; text-align: center; opacity: 0.6;">
-    <p>&copy; 2026 RE-BLOOM. All rights vibrant.</p>
+    <p>&copy; 2026 SSC EVENTS. All rights reserved.</p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="main.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const cards = document.querySelectorAll('.announcement-card');
-      const filterBtns = document.querySelectorAll('.cat-btn');
+      // Initialize GSAP ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
 
-      // Accordion functionality
-      cards.forEach(card => {
-        card.addEventListener('click', (e) => {
-          // Ignore clicks on links/buttons
-          if (e.target.tagName.toLowerCase() === 'a' || e.target.tagName.toLowerCase() === 'button') return;
+      // Remove Global Preloader
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 800);
+      }, 500);
 
-          // Toggle this card
-          const isExpanded = card.classList.contains('expanded');
-
-          // Collapse others
-          cards.forEach(c => c.classList.remove('expanded'));
-
-          if (!isExpanded) {
-            card.classList.add('expanded');
+      // Reveal Animations for Grid Cards
+      gsap.utils.toArray('.announcement-card').forEach((card, i) => {
+        gsap.fromTo(card,
+          { y: 60, opacity: 0 },
+          {
+            y: 0, opacity: 1, duration: 1, ease: "power3.out",
+            scrollTrigger: { trigger: card, start: "top 85%" }
           }
-
-          // Refresh ScrollTrigger so pages adjust height properly
-          setTimeout(() => ScrollTrigger.refresh(), 600);
-        });
+        );
       });
 
-      // Filter functionality
+      // Filter functionality with fluid GSAP transitions
+      const filterBtns = document.querySelectorAll('.cat-btn');
+      const cards = document.querySelectorAll('.announcement-card');
+
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          // Remove active class from all buttons
+          // Update active states
           filterBtns.forEach(b => b.classList.remove('active'));
-          // Add active class to clicked button
           btn.classList.add('active');
 
           const filterValue = btn.getAttribute('data-filter');
 
-          cards.forEach(card => {
-            // Close expanded cards on filter change
-            card.classList.remove('expanded');
+          // Animate cards out
+          gsap.to(cards, {
+            scale: 0.9,
+            opacity: 0,
+            y: 20,
+            duration: 0.4,
+            ease: "power2.in",
+            onComplete: () => {
+              // Toggle classes
+              cards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                  card.classList.remove('hidden');
+                } else {
+                  card.classList.add('hidden');
+                }
+              });
 
-            if (filterValue === 'all') {
-              card.classList.remove('hidden');
-            } else {
-              if (card.getAttribute('data-category') === filterValue) {
-                card.classList.remove('hidden');
-              } else {
-                card.classList.add('hidden');
-              }
+              // Refresh scroll trigger
+              ScrollTrigger.refresh();
+
+              // Animate visible cards back in staggeringly
+              const visibleCards = Array.from(cards).filter(c => !c.classList.contains('hidden'));
+              gsap.to(visibleCards, {
+                scale: 1,
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: "back.out(1.2)",
+                clearProps: "all" // Clears inline styles after animation so CSS hover states work again
+              });
             }
           });
-
-          // Refresh animation triggers after DOM reflow
-          setTimeout(() => ScrollTrigger.refresh(), 100);
         });
       });
     });
