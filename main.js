@@ -18,6 +18,9 @@ window.addEventListener('load', () => {
         defaults: { ease: "expo.out", duration: 1.8 }
     });
 
+    // Make sure the parent container is visible since it has opacity:0 in CSS
+    gsap.set(".hero-title", { opacity: 1 });
+
     // Ensure elements are visible at the end of the from sequence
     heroTl
         .fromTo(".hero-line",
