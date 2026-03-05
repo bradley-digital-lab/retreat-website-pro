@@ -352,7 +352,7 @@
       <div class="container announcements-grid">
 
         <!-- Announcement 1 -->
-        <a href="#" class="announcement-card reveal" data-category="location">
+        <a href="#" class="announcement-card" data-category="location">
           <div class="card-shape shape-1"></div>
           <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
@@ -365,7 +365,7 @@
         </a>
 
         <!-- Announcement 2 -->
-        <a href="#" class="announcement-card reveal" data-category="curator">
+        <a href="#" class="announcement-card" data-category="curator">
           <div class="card-shape shape-2"></div>
           <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
@@ -378,7 +378,7 @@
         </a>
 
         <!-- Announcement 3 -->
-        <a href="#" class="announcement-card reveal" data-category="community">
+        <a href="#" class="announcement-card" data-category="community">
           <div class="card-shape shape-3"></div>
           <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
@@ -391,7 +391,7 @@
         </a>
 
         <!-- Announcement 4 -->
-        <a href="#" class="announcement-card reveal" data-category="location">
+        <a href="#" class="announcement-card" data-category="location">
           <div class="card-shape shape-2"></div>
           <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
@@ -404,7 +404,7 @@
         </a>
 
         <!-- Announcement 5 -->
-        <a href="#" class="announcement-card reveal" data-category="community">
+        <a href="#" class="announcement-card" data-category="community">
           <div class="card-shape shape-1"></div>
           <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
@@ -417,7 +417,7 @@
         </a>
 
         <!-- Announcement 6 -->
-        <a href="#" class="announcement-card reveal" data-category="curator">
+        <a href="#" class="announcement-card" data-category="curator">
           <div class="card-shape shape-3"></div>
           <div class="read-more-indicator">&rarr;</div>
           <div class="announcement-meta">
@@ -464,6 +464,16 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Reveal Animations for Grid Cards initially
+      gsap.utils.toArray('.announcement-card').forEach((card, i) => {
+        gsap.fromTo(card,
+          { y: 60, opacity: 0 },
+          {
+            y: 0, opacity: 1, duration: 1, ease: "power3.out",
+            scrollTrigger: { trigger: card, start: "top 85%" }
+          }
+        );
+      });
 
       // Filter functionality with fluid GSAP transitions
       const filterBtns = document.querySelectorAll('.cat-btn');
