@@ -20,9 +20,9 @@ window.addEventListener('load', () => {
 
     // Ensure elements are visible at the end of the from sequence
     heroTl
-        .fromTo(".hero-title",
-            { y: 120, opacity: 0, skewY: 10 },
-            { y: 0, opacity: 1, skewY: 0, stagger: 0.1 }
+        .fromTo(".hero-line",
+            { y: 80, opacity: 0, scale: 0.85, filter: "blur(25px)", rotationX: -15 },
+            { y: 0, opacity: 1, scale: 1, filter: "blur(0px)", rotationX: 0, duration: 2.5, ease: "power4.out", stagger: 0.4 }
         )
         .fromTo(".hero-subtext",
             { y: 40, opacity: 0 },
