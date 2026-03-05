@@ -92,6 +92,8 @@
         <style>
           .floating-hero-container {
             position: relative;
+            z-index: 20;
+            /* Ensure images float ON TOP of the next section below */
             width: 100vw;
             left: 50%;
             transform: translateX(-50%);
@@ -101,7 +103,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            overflow: visible;
+            /* Don't clip images floating outside */
             /* smooth parallax entrance */
           }
 
