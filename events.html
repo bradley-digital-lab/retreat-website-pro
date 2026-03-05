@@ -547,16 +547,15 @@
           // Animation Timeline
           const tl = gsap.timeline();
 
-          // Fade out all cards first
-          tl.to(eventCards, {
+          // 1. Hide/Fade out all cards
+          gsap.to(eventCards, {
             opacity: 0,
             scale: 0.9,
             y: 20,
             duration: 0.4,
             ease: "power2.in",
-            stagger: 0.05,
             onComplete: () => {
-              // Hide/Show based on filter
+              // 2. Determine which cards match the filter
               eventCards.forEach(card => {
                 if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                   card.style.display = 'block';
@@ -564,21 +563,23 @@
                   card.style.display = 'none';
                 }
               });
-              // Refresh ScrollTrigger as height of container may have changed
+
+              // 3. Refresh ScrollTrigger since the page height changed
               ScrollTrigger.refresh();
+
+              // 4. Fade in ONLY the matching cards
+              const visibleCards = Array.from(eventCards).filter(c => c.style.display !== 'none');
+              gsap.to(visibleCards, {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: "back.out(1.2)",
+                clearProps: "opacity,scale,y"
+              });
             }
           });
-
-          // Fade in the filtered cards
-          tl.to(eventCards, {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            duration: 0.6,
-            stagger: 0.08,
-            ease: "back.out(1.2)",
-            clearProps: "all" // Keep original styles classes
-          }, "+=0.1");
         });
       });
 
