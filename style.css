@@ -733,17 +733,16 @@ h2 {
 
 /* Form Styles Refinement */
 .contact-form {
-    max-width: 850px;
-    margin: 8rem auto;
-    padding: 6rem 5rem !important;
+    max-width: 550px;
+    margin: 4rem auto;
+    padding: 3rem 3rem !important;
     position: relative;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.25) !important;
     backdrop-filter: blur(40px) saturate(160%) !important;
     border: 1px solid rgba(255, 255, 255, 0.4) !important;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
-    border-radius: 50px;
-    /* Ultra-soft organic container */
+    border-radius: 40px;
 }
 
 /* Subtle Light Leak to make it feel expensive */
@@ -760,9 +759,9 @@ h2 {
 }
 
 .contact-title {
-    font-size: 3.8rem !important;
-    letter-spacing: -3px;
-    margin-bottom: 4rem !important;
+    font-size: 2.2rem !important;
+    letter-spacing: -1px;
+    margin-bottom: 2rem !important;
     text-align: center;
     color: var(--text-dark);
 }
@@ -772,20 +771,21 @@ textarea {
     width: 100%;
     background: rgba(255, 255, 255, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 1.5rem 2rem;
-    font-size: 1.1rem;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
     border-radius: 100px;
     /* Pill inputs */
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-family: var(--font-body);
     color: var(--text-dark);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 textarea {
-    border-radius: 30px;
+    border-radius: 20px;
     /* Soft organic square for message */
-    min-height: 180px;
+    min-height: 100px;
+    resize: vertical;
 }
 
 input::placeholder,
@@ -809,23 +809,23 @@ textarea:focus {
 
 .submit-btn {
     width: 100%;
-    padding: 1.5rem !important;
-    font-size: 1rem !important;
+    padding: 1rem !important;
+    font-size: 0.85rem !important;
     background: var(--text-dark);
     color: white;
     border-radius: 100px !important;
     text-transform: uppercase;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
     font-weight: 800;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    margin-top: 2rem;
+    margin-top: 1rem;
     cursor: pointer;
 }
 
 .submit-btn:hover {
     background: var(--vibrant-teal);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(78, 205, 196, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
 }
 
 
