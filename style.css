@@ -731,101 +731,77 @@ h2 {
     will-change: transform, opacity;
 }
 
-/* Form Styles Refinement */
-.contact-form {
-    max-width: 550px;
-    margin: 4rem auto;
-    padding: 3rem 3rem !important;
-    position: relative;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.25) !important;
-    backdrop-filter: blur(40px) saturate(160%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
-    border-radius: 40px;
-}
-
-/* Subtle Light Leak to make it feel expensive */
-.contact-form::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
+/* Form Styles Refinement: Sleek Form */
+.sleek-form {
+    padding: 0;
+    margin: 0;
     width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
 }
 
-.contact-title {
-    font-size: 2.2rem !important;
-    letter-spacing: -1px;
-    margin-bottom: 2rem !important;
-    text-align: center;
-    color: var(--text-dark);
+.sleek-group {
+    margin-bottom: 2.5rem;
 }
 
-input,
-textarea {
+.sleek-input {
     width: 100%;
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 1rem 1.5rem;
-    font-size: 0.95rem;
-    border-radius: 100px;
-    /* Pill inputs */
-    margin-bottom: 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 0;
+    font-size: 1.15rem;
     font-family: var(--font-body);
     color: var(--text-dark);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.4s ease;
+    border-radius: 0;
 }
 
-textarea {
-    border-radius: 20px;
-    /* Soft organic square for message */
-    min-height: 100px;
-    resize: vertical;
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: var(--text-dark);
-    opacity: 0.4;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-input:focus,
-textarea:focus {
+.sleek-input:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.7);
+    background: transparent;
     border-color: var(--vibrant-teal);
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 15px 40px rgba(78, 205, 196, 0.15);
+    transform: none;
+    box-shadow: none;
 }
 
-.submit-btn {
-    width: 100%;
-    padding: 1rem !important;
-    font-size: 0.85rem !important;
-    background: var(--text-dark);
-    color: white;
+.sleek-input.auto-expand {
+    min-height: 45px;
+    resize: none;
+    overflow-y: hidden;
+}
+
+.sleek-input::placeholder {
+    color: var(--text-dark);
+    opacity: 0.3;
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: 1.15rem;
+    text-transform: none;
+}
+
+.sleek-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 2.5rem !important;
+    background: transparent;
+    color: var(--text-dark);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     border-radius: 100px !important;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: 800;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    margin-top: 1rem;
+    font-size: 1rem !important;
+    text-transform: none;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-top: 1.5rem;
     cursor: pointer;
 }
 
-.submit-btn:hover {
-    background: var(--vibrant-teal);
+.sleek-submit:hover {
+    background: var(--text-dark);
+    color: white;
+    border-color: var(--text-dark) !important;
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 
