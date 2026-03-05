@@ -453,56 +453,58 @@
             </div>
         </section>
 
-        <!-- Beautiful Editorial Gallery -->
-        <section class="container retreat-gallery">
-            <div class="gallery-header reveal">
-                <h2>The <span class="vibrant-teal">Sanctuary</span> in Pictures</h2>
-                <p style="opacity: 0.6; font-size: 1.1rem; max-width: 600px; margin: 0 auto; margin-top: 1rem;">
-                    Glimpses into the spaces where your profound transformation will unfold. Hover to discover.
-                </p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item image-reveal-mask">
-                    <img src="images/surrender-sanctuary.jpg" class="parallax-img" alt="Villa at Night">
-                    <div class="overlay-gradient"></div>
-                    <div class="gallery-info">
-                        <span class="gallery-tag">Exterior</span>
-                        <h4>The Infinity Edge</h4>
-                        <p>Where the heated waters meet the absolute stillness of the Aegean horizon under the expansive
-                            Mediterranean night sky.</p>
-                    </div>
+        <!-- Floating Parallax Sanctuary Gallery -->
+        <section class="floating-sanctuary-section"
+            style="position: relative; width: 100vw; left: 50%; transform: translateX(-50%); height: 100vh; overflow: hidden; padding-top: 5rem; perspective: 1000px;">
+
+            <div class="sanctuary-pin-container"
+                style="width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d;">
+                <div class="sanctuary-text-center"
+                    style="position: absolute; text-align: center; z-index: 10; pointer-events: none;">
+                    <h2
+                        style="font-size: clamp(3rem, 6vw, 5rem); color: var(--text-dark); margin-bottom: 1rem; letter-spacing: -2px;">
+                        The <span class="vibrant-teal">Sanctuary</span></h2>
+                    <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 500px; margin: 0 auto;">Glimpses
+                        into the spaces where your profound transformation will unfold.</p>
                 </div>
-                <div class="gallery-item image-reveal-mask">
-                    <img src="images/surrender-gal-2.jpg" class="parallax-img" alt="Cliffside Private Villa">
-                    <div class="overlay-gradient"></div>
-                    <div class="gallery-info">
-                        <span class="gallery-tag">Architecture</span>
-                        <h4>White-Washed Serenity</h4>
-                        <p>Minimalist stone architecture designed to cool the body and calm the overactive mind.</p>
-                    </div>
+
+                <!-- Floating Images Set deeply in Z-space -->
+                <div class="sanc-img-item"
+                    style="position: absolute; width: clamp(200px, 20vw, 300px); aspect-ratio: 3/4; top: 8%; left: 8%; z-index: 5; opacity: 0; transform: translateZ(-800px) scale(0.3); pointer-events: auto;">
+                    <img src="images/surrender-sanctuary.jpg"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);"
+                        alt="Infinity Edge">
                 </div>
-                <div class="gallery-item image-reveal-mask">
-                    <img src="images/surrender-gal-3.jpg" class="parallax-img" alt="Expansive Nature Surroundings">
-                    <div class="overlay-gradient"></div>
-                    <div class="gallery-info">
-                        <span class="gallery-tag">Grounding</span>
-                        <h4>The Olive Groves</h4>
-                        <p>Centuries-old groves providing the perfect shaded sanctuary for walking meditations and
-                            connection to the earth.</p>
-                    </div>
+
+                <div class="sanc-img-item"
+                    style="position: absolute; width: clamp(220px, 24vw, 350px); aspect-ratio: 16/9; bottom: 12%; right: 8%; z-index: 6; opacity: 0; transform: translateZ(-900px) scale(0.3); pointer-events: auto;">
+                    <img src="images/surrender-gal-2.jpg"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);"
+                        alt="Villa">
                 </div>
-                <div class="gallery-item image-reveal-mask">
+
+                <div class="sanc-img-item"
+                    style="position: absolute; width: clamp(180px, 18vw, 250px); aspect-ratio: 4/5; top: 12%; right: 12%; z-index: 7; opacity: 0; transform: translateZ(-700px) scale(0.3); pointer-events: auto;">
+                    <img src="images/surrender-gal-3.jpg"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);"
+                        alt="Olive Groves">
+                </div>
+
+                <div class="sanc-img-item"
+                    style="position: absolute; width: clamp(250px, 25vw, 400px); aspect-ratio: 4/3; bottom: 8%; left: 12%; z-index: 8; opacity: 0; transform: translateZ(-1000px) scale(0.3); pointer-events: auto;">
                     <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2000&auto=format&fit=crop"
-                        class="parallax-img" alt="Spa and Wellness Center">
-                    <div class="overlay-gradient"></div>
-                    <div class="gallery-info">
-                        <span class="gallery-tag">Rejuvenation</span>
-                        <h4>The Cave Spa</h4>
-                        <p>An acoustic marvel built into the cliff face, hosting our signature multi-instrumental sound
-                            healing sessions.</p>
-                    </div>
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);"
+                        alt="Cave Spa">
                 </div>
             </div>
+        </section>
+
+        <!-- Post Gallery CTA -->
+        <section style="padding: 10rem 0 5rem 0; text-align: center;">
+            <a href="announcements.html" class="shiny-glass-cta"
+                style="background: var(--text-dark); color: white; border: none; padding: 1.2rem 3.5rem;">
+                Get the Latest <span style="font-size: 1.3rem;">&rarr;</span>
+            </a>
         </section>
     </main>
 
@@ -588,6 +590,56 @@
                     }
                 }
             );
+        });
+
+        // 4. Sanctuary Float & Pin Animation
+        let sancTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".floating-sanctuary-section",
+                start: "center center",
+                end: "+=200%", // Pin for 2 viewport heights to allow scrub
+                pin: true,
+                scrub: 1, // Smooth scrubbing
+            }
+        });
+
+        // Slowly scale the text out of focus
+        sancTl.to(".sanctuary-text-center", { scale: 0.85, opacity: 0.3, duration: 1 }, 0);
+
+        // Sequentially bring images forward out of the deep Z-axis
+        const sancImgs = gsap.utils.toArray('.sanc-img-item');
+        sancImgs.forEach((img, i) => {
+            sancTl.to(img, {
+                opacity: 1,
+                z: 0, // Reset z space
+                scale: 1,
+                rotation: (i % 2 === 0 ? gsap.utils.random(-12, -4) : gsap.utils.random(4, 12)),
+                duration: 2,
+                ease: "power2.out"
+            }, i * 0.8); // Stagger them onto the screen
+
+            // Add subtle Y and X parallax drift for each image
+            sancTl.to(img, {
+                y: gsap.utils.random(-50, 50),
+                x: gsap.utils.random(-30, 30),
+                duration: 4,
+                ease: "none"
+            }, 0);
+        });
+
+        // Add click-to-flip interaction to the floating images
+        document.querySelectorAll('.sanc-img-item').forEach(wrapper => {
+            let img = wrapper.querySelector('img');
+            wrapper.addEventListener('click', () => {
+                gsap.to(img, {
+                    rotationY: "+=180",
+                    scale: 1.15,
+                    duration: 1.2,
+                    ease: "power3.inOut",
+                    yoyo: true,
+                    repeat: 1
+                });
+            });
         });
     </script>
 </body>
