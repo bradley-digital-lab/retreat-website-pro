@@ -267,13 +267,7 @@
           </div>
         </div>
 
-        <div class="filter-controls reveal"
-          style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 4rem;">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="retreats">Retreats</button>
-          <button class="filter-btn" data-filter="workshops">Workshops</button>
-          <button class="filter-btn" data-filter="community">Community</button>
-        </div>
+
 
         <style>
           .filter-btn {
@@ -307,7 +301,16 @@
         <div class="retreats-showcase">
           <!-- Main Event Grid -->
           <div class="retreat-group preorder-retreats reveal" id="event-grid">
-            <span class="retreat-group-title" style="width: 100%; display: block;">Upcoming Curations</span>
+            <span class="retreat-group-title" style="width: 100%; display: block;">Upcoming
+              Curations</span>
+
+            <div class="filter-controls reveal"
+              style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; width: 100%;">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="retreats">Retreats</button>
+              <button class="filter-btn" data-filter="workshops">Workshops</button>
+              <button class="filter-btn" data-filter="community">Community</button>
+            </div>
 
             <!-- Renewal & Rebirth (Retreat) -->
             <div class="glass-card retreat-card" data-category="retreats">
