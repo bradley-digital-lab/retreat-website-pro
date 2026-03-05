@@ -460,10 +460,10 @@
             <div class="sanctuary-pin-container"
                 style="width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d;">
 
-                <!-- 1. The HERO IMAGE (Spawn it perfectly centered, largest, first in DOM so others overlap it) -->
+                <!-- 1. The HERO IMAGE -->
                 <div class="sanc-img-item"
-                    style="position: absolute; width: clamp(300px, 45vw, 900px); aspect-ratio: 16/9; top: 10%; z-index: 2; opacity: 0; transform: scale(0.2); filter: blur(25px); pointer-events: auto;">
-                    <img src="images/surrender-sanctuary.jpg"
+                    style="position: absolute; width: clamp(300px, 45vw, 900px); aspect-ratio: 16/9; bottom: 5%; z-index: 2; opacity: 0; transform: scale(0.2); filter: blur(25px); pointer-events: auto;">
+                    <img src="images/surrender-hero.jpg"
                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 30px; box-shadow: 0 40px 80px rgba(0,0,0,0.4);"
                         alt="Night Sanctuary Hero Aerial">
                 </div>
@@ -497,18 +497,14 @@
                         alt="Aerial Villa">
                 </div>
 
-                <!-- THE IMMOVABLE TEXT (Placed last in DOM + highest z-index + glassmorphism backing) -->
+                <!-- THE IMMOVABLE TEXT -->
                 <div class="sanctuary-text-center"
-                    style="position: absolute; text-align: center; z-index: 999; transform: translateZ(100px); pointer-events: none; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 3rem 4rem; border-radius: 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.1); border: 1px solid rgba(255,255,255,0.8);">
+                    style="position: absolute; top: 15%; text-align: center; z-index: 10; pointer-events: none;">
                     <h2
-                        style="font-size: clamp(3rem, 6vw, 5rem); color: var(--text-dark); margin-bottom: 0.5rem; letter-spacing: -1.5px; line-height: 1;">
-                        The <span
-                            style="background: linear-gradient(135deg, var(--vibrant-teal), var(--vibrant-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Sanctuary</span>
-                    </h2>
-                    <p
-                        style="font-size: 1.25rem; color: var(--text-muted); max-width: 450px; margin: 0 auto; line-height: 1.5;">
-                        Glimpses
-                        into the spaces for profound recalibration.</p>
+                        style="font-size: clamp(3rem, 6vw, 5rem); color: var(--text-dark); margin-bottom: 1rem; letter-spacing: -2px;">
+                        The <span class="vibrant-teal">Sanctuary</span></h2>
+                    <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 500px; margin: 0 auto;">Glimpses
+                        into the spaces where your profound transformation will unfold.</p>
                 </div>
             </div>
         </section>
