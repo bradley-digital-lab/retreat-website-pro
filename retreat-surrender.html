@@ -458,7 +458,7 @@
             style="position: relative; width: 100vw; left: 50%; transform: translateX(-50%); height: 100vh; overflow: hidden; padding-top: 5rem; perspective: 1000px;">
 
             <div class="sanctuary-pin-container"
-                style="width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d;">
+                style="width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center;">
                 <div class="sanctuary-text-center"
                     style="position: absolute; text-align: center; z-index: 10; pointer-events: none;">
                     <h2
@@ -468,33 +468,40 @@
                         into the spaces where your profound transformation will unfold.</p>
                 </div>
 
-                <!-- Floating Images Set deeply in Z-space -->
+                <!-- Floating Images with flat 2D scaling to prevent clipping -->
                 <div class="sanc-img-item"
-                    style="position: absolute; width: clamp(200px, 20vw, 300px); aspect-ratio: 3/4; top: 8%; left: 8%; z-index: 5; opacity: 0; transform: translateZ(-800px) scale(0.3); pointer-events: auto;">
-                    <img src="images/surrender-sanctuary.jpg"
+                    style="position: absolute; width: clamp(200px, 20vw, 300px); aspect-ratio: 16/9; top: 12%; left: 8%; z-index: 5; opacity: 0; transform: scale(0.2); pointer-events: auto;">
+                    <img src="images/surrender-gal-1.jpg"
                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);"
-                        alt="Infinity Edge">
+                        alt="Pool Lounge">
                 </div>
 
                 <div class="sanc-img-item"
-                    style="position: absolute; width: clamp(220px, 24vw, 350px); aspect-ratio: 16/9; bottom: 12%; right: 8%; z-index: 6; opacity: 0; transform: translateZ(-900px) scale(0.3); pointer-events: auto;">
+                    style="position: absolute; width: clamp(220px, 24vw, 350px); aspect-ratio: 4/3; bottom: 15%; right: 8%; z-index: 6; opacity: 0; transform: scale(0.2); pointer-events: auto;">
                     <img src="images/surrender-gal-2.jpg"
                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);"
-                        alt="Villa">
+                        alt="Yoga Studio">
                 </div>
 
                 <div class="sanc-img-item"
-                    style="position: absolute; width: clamp(180px, 18vw, 250px); aspect-ratio: 4/5; top: 12%; right: 12%; z-index: 7; opacity: 0; transform: translateZ(-700px) scale(0.3); pointer-events: auto;">
+                    style="position: absolute; width: clamp(180px, 18vw, 250px); aspect-ratio: 4/5; top: 18%; right: 15%; z-index: 7; opacity: 0; transform: scale(0.2); pointer-events: auto;">
                     <img src="images/surrender-gal-3.jpg"
                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);"
-                        alt="Olive Groves">
+                        alt="Outdoor Seating">
                 </div>
 
                 <div class="sanc-img-item"
-                    style="position: absolute; width: clamp(250px, 25vw, 400px); aspect-ratio: 4/3; bottom: 8%; left: 12%; z-index: 8; opacity: 0; transform: translateZ(-1000px) scale(0.3); pointer-events: auto;">
-                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2000&auto=format&fit=crop"
+                    style="position: absolute; width: clamp(250px, 25vw, 400px); aspect-ratio: 16/9; bottom: 10%; left: 12%; z-index: 8; opacity: 0; transform: scale(0.2); pointer-events: auto;">
+                    <img src="images/surrender-gal-4.jpg"
                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);"
-                        alt="Cave Spa">
+                        alt="Aerial Villa">
+                </div>
+
+                <div class="sanc-img-item"
+                    style="position: absolute; width: clamp(200px, 22vw, 320px); aspect-ratio: 3/4; top: 30%; left: 60%; z-index: 9; opacity: 0; transform: scale(0.2); pointer-events: auto;">
+                    <img src="images/surrender-sanctuary.jpg"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.3);"
+                        alt="Night Sanctuary">
                 </div>
             </div>
         </section>
@@ -606,12 +613,11 @@
         // Slowly scale the text out of focus
         sancTl.to(".sanctuary-text-center", { scale: 0.85, opacity: 0.3, duration: 1 }, 0);
 
-        // Sequentially bring images forward out of the deep Z-axis
+        // Sequentially bring images forward strictly in 2D to prevent 3D clipping
         const sancImgs = gsap.utils.toArray('.sanc-img-item');
         sancImgs.forEach((img, i) => {
             sancTl.to(img, {
                 opacity: 1,
-                z: 0, // Reset z space
                 scale: 1,
                 rotation: (i % 2 === 0 ? gsap.utils.random(-12, -4) : gsap.utils.random(4, 12)),
                 duration: 2,
