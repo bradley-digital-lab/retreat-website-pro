@@ -1,3 +1,11 @@
 {
-    "name": "retreat-website-pro"
+    "name": "retreat-website-pro",
+    "redirects": [
+        {
+            "source": "/journeys(.html)?",
+            "destination": "/events.html",
+            "permanent": true
+        }
+    ],
+    "cleanUrls": true
 }
