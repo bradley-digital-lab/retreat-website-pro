@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upcoming Journeys | SSC Events</title>
+  <title>Upcoming Events | SSC Events</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -87,7 +87,7 @@
   <main>
     <section id="retreats" style="padding-top: 15rem; min-height: 80vh; padding-bottom: 5rem;">
       <div class="container">
-        <h2 class="reveal">Upcoming <span class="vibrant-text">Journeys</span></h2>
+        <h2 class="reveal">Upcoming <span class="vibrant-text">Events</span></h2>
 
         <style>
           .floating-hero-container {
@@ -229,10 +229,10 @@
 
           <!-- Central Text -->
           <div class="floating-hero-text-wrapper hero-entrance">
-            <div class="hero-badge-anim" style="margin-bottom: 2rem;">
-              <span class="retreat-badge"
-                style="background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); color: var(--text-dark); border: 1px solid rgba(0,0,0,0.1); font-weight: 700; padding: 0.6rem 2rem; border-radius: 100px; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">✦
-                Flagship Journey</span>
+            <div class="hero-badge-anim" style="margin-bottom: 2rem; display: flex; justify-content: center;">
+              <a href="retreat-surrender.html" class="retreat-badge flagship-glass"
+                style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(25px) saturate(180%); -webkit-backdrop-filter: blur(25px) saturate(180%); color: var(--text-dark); border: 1px solid rgba(255, 255, 255, 0.4); font-weight: 800; padding: 0.8rem 2.5rem; border-radius: 100px; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.85rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: inline-flex; align-items: center; gap: 0.8rem; border-bottom: 2px solid rgba(255,255,255,0.2); text-decoration: none; transition: all 0.3s ease;">
+                <span style="font-size: 1.1rem;">✦</span> Flagship Journey</a>
             </div>
 
             <div class="hero-text-anim">
@@ -267,15 +267,50 @@
           </div>
         </div>
 
+        <div class="filter-controls reveal"
+          style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 4rem;">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="retreats">Retreats</button>
+          <button class="filter-btn" data-filter="workshops">Workshops</button>
+          <button class="filter-btn" data-filter="community">Community</button>
+        </div>
+
+        <style>
+          .filter-btn {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 0.8rem 2rem;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          }
+
+          .filter-btn:hover {
+            background: white;
+            color: var(--text-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+          }
+
+          .filter-btn.active {
+            background: var(--text-dark);
+            color: white;
+            border-color: var(--text-dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          }
+        </style>
+
         <div class="retreats-showcase">
+          <!-- Main Event Grid -->
+          <div class="retreat-group preorder-retreats reveal" id="event-grid">
+            <span class="retreat-group-title" style="width: 100%; display: block;">Upcoming Curations</span>
 
-
-          <!-- Pre-order Tier -->
-          <div class="retreat-group preorder-retreats reveal">
-            <span class="retreat-group-title">Advance Reservations</span>
-
-            <!-- Bali Card -->
-            <div class="glass-card retreat-card">
+            <!-- Bali Card (Retreat) -->
+            <div class="glass-card retreat-card" data-category="retreats">
               <div class="image-container">
                 <a href="retreat-bali.html" class="retreat-badge preorder-badge" style="text-decoration: none;">Register
                   Interest</a>
@@ -283,18 +318,34 @@
                   alt="Bali Sanctuary">
               </div>
               <div class="card-content">
-                <span class="tag">Sanctuary</span>
+                <span class="tag">Retreat</span>
                 <h3>Bali Bloom</h3>
                 <p class="text-muted">Tropical serenity meets volcanic energy. 7 days of raw revitalization.</p>
                 <div class="card-meta">
                   <span class="date-tag vibrant-teal">DATES TBC</span>
-                  <span class="availability">Priority Access List</span>
                 </div>
               </div>
             </div>
 
-            <!-- Amalfi Card -->
-            <div class="glass-card retreat-card">
+            <!-- Sonic Breathwork (Workshop) -->
+            <div class="glass-card retreat-card" data-category="workshops">
+              <div class="image-container">
+                <div class="retreat-badge" style="background: var(--vibrant-pink); color: white;">Book Spot</div>
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2000&auto=format&fit=crop"
+                  alt="Meditation">
+              </div>
+              <div class="card-content">
+                <span class="tag">Workshop</span>
+                <h3>Sonic Breathwork</h3>
+                <p class="text-muted">Immersive sound healing and conscious breathing. A 3-hour recalibration.</p>
+                <div class="card-meta">
+                  <span class="date-tag vibrant-pink">APR 12, 2026</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Amalfi Card (Retreat) -->
+            <div class="glass-card retreat-card" data-category="retreats">
               <div class="image-container">
                 <a href="retreat-amalfi.html" class="retreat-badge preorder-badge"
                   style="text-decoration: none;">Register Interest</a>
@@ -302,18 +353,34 @@
                   alt="Azure Coast">
               </div>
               <div class="card-content">
-                <span class="tag">Flow State</span>
+                <span class="tag">Retreat</span>
                 <h3>Amalfi Flow</h3>
                 <p class="text-muted">Mediterranean breeze and mindful movement. The art of the slow life.</p>
                 <div class="card-meta">
                   <span class="date-tag vibrant-pink">DATES TBC</span>
-                  <span class="availability">Pre-order Interest</span>
                 </div>
               </div>
             </div>
 
-            <!-- Sahara Card -->
-            <div class="glass-card retreat-card">
+            <!-- Full Moon Gathering (Community) -->
+            <div class="glass-card retreat-card" data-category="community">
+              <div class="image-container">
+                <div class="retreat-badge" style="background: var(--vibrant-blue); color: white;">Join Circle</div>
+                <img src="https://images.unsplash.com/photo-1532767153582-b1a0e5145009?q=80&w=2000&auto=format&fit=crop"
+                  alt="Full Moon">
+              </div>
+              <div class="card-content">
+                <span class="tag">Community</span>
+                <h3>Lunar Circle</h3>
+                <p class="text-muted">A gathering under the full moon for intention setting and connection.</p>
+                <div class="card-meta">
+                  <span class="date-tag vibrant-blue">MAY 4, 2026</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sahara Card (Retreat) -->
+            <div class="glass-card retreat-card" data-category="retreats">
               <div class="image-container">
                 <a href="retreat-sahara.html" class="retreat-badge preorder-badge"
                   style="text-decoration: none;">Register Interest</a>
@@ -321,58 +388,35 @@
                   alt="Sahara Desert Dunes">
               </div>
               <div class="card-content">
-                <span class="tag">Stillness</span>
+                <span class="tag">Retreat</span>
                 <h3>Sahara Silence</h3>
                 <p class="text-muted">Vast dunes and celestial nights. A deep dive into absolute stillness.</p>
                 <div class="card-meta">
                   <span class="date-tag vibrant-blue">DATES TBC</span>
-                  <span class="availability">Priority Access List</span>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- TBA Tier -->
-          <div class="retreat-group tba-retreats reveal">
-            <span class="retreat-group-title">Upcoming Announcements</span>
-
-            <!-- TBA Card 1 -->
-            <div class="glass-card retreat-card">
+            <!-- Art of Being (Workshop) -->
+            <div class="glass-card retreat-card" data-category="workshops">
               <div class="image-container">
-                <div class="retreat-badge tba-badge">Mystery Kyoto</div>
-                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop"
-                  alt="Kyoto Zen">
+                <div class="retreat-badge" style="background: var(--vibrant-teal); color: white;">Book Spot</div>
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2000&auto=format&fit=crop"
+                  alt="Art">
               </div>
               <div class="card-content">
-                <h3>?? KYOTO</h3>
+                <span class="tag">Workshop</span>
+                <h3>The Art of Being</h3>
+                <p class="text-muted">Exploring modern mindfulness through abstract expression and color.</p>
+                <div class="card-meta">
+                  <span class="date-tag vibrant-teal">JUN 18, 2026</span>
+                </div>
               </div>
             </div>
 
-            <!-- TBA Card 2 -->
-            <div class="glass-card retreat-card">
-              <div class="image-container">
-                <div class="retreat-badge tba-badge">Mystery Iceland</div>
-                <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=2059&auto=format&fit=crop"
-                  alt="Icelandic Core">
-              </div>
-              <div class="card-content">
-                <h3>?? ICELAND</h3>
-              </div>
-            </div>
-
-            <!-- TBA Card 3 -->
-            <div class="glass-card retreat-card">
-              <div class="image-container">
-                <div class="retreat-badge tba-badge">Mystery Amazon</div>
-                <img src="https://images.unsplash.com/photo-1549543048-8df05370f6bc?q=80&w=2000&auto=format&fit=crop"
-                  alt="Amazonian Breath">
-              </div>
-              <div class="card-content">
-                <h3>?? AMAZON</h3>
-              </div>
-            </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
 
@@ -485,6 +529,56 @@
             yoyo: true,
             repeat: 1
           });
+        });
+      });
+
+      // 7. Filtering Logic with Shuffle Animation
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const eventCards = document.querySelectorAll('.retreat-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filterValue = btn.getAttribute('data-filter');
+
+          // Update active button
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // Animation Timeline
+          const tl = gsap.timeline();
+
+          // Fade out all cards first
+          tl.to(eventCards, {
+            opacity: 0,
+            scale: 0.9,
+            y: 20,
+            duration: 0.4,
+            ease: "power2.in",
+            stagger: 0.05,
+            onComplete: () => {
+              // Hide/Show based on filter
+              eventCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                  card.style.display = 'block';
+                } else {
+                  card.style.display = 'none';
+                }
+              });
+              // Refresh ScrollTrigger as height of container may have changed
+              ScrollTrigger.refresh();
+            }
+          });
+
+          // Fade in the filtered cards
+          tl.to(eventCards, {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.08,
+            ease: "back.out(1.2)",
+            clearProps: "all" // Keep original styles classes
+          }, "+=0.1");
         });
       });
 
