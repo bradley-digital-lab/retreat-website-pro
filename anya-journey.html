@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anya's Journey | SSC Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Immediate preloader to prevent flash */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .loader-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--vibrant-pink);
+            border-radius: 50%;
+            margin: 0 4px;
+            animation: dotPulse 1.5s infinite ease-in-out;
+        }
+
+        @keyframes dotPulse {
+
+            0%,
+            100% {
+                transform: scale(0.3);
+                opacity: 0.2;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Page Specific Styles */
+        .journey-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            padding-top: 5rem;
+        }
+
+        .journey-hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+            filter: blur(5px);
+        }
+
+        .section-spacing {
+            padding: 10rem 0;
+        }
+
+        .split-content {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            margin-bottom: 8rem;
+        }
+
+        .split-content.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .split-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .split-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            /* Default aspect ratio to keep things consistent */
+            aspect-ratio: 4/5;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.1);
+            /* For parallax effect */
+        }
+
+        .split-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            font-style: italic;
+        }
+
+        .split-desc {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+
+            .split-content,
+            .split-content.reverse {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader-dot" style="animation-delay: 0s"></div>
+        <div class="loader-dot" style="animation-delay: 0.2s"></div>
+        <div class="loader-dot" style="animation-delay: 0.4s"></div>
+    </div>
+    <div class="mesh-bg"></div>
+
+    <nav class="glass">
+        <div class="logo-wrapper">
+            <a href="index.html" class="logo">SSC <span class="logo-accent">Events</span></a>
+            <span class="logo-subtext">by spiritual soul centre</span>
+        </div>
+        <div class="nav-links">
+            <a href="events.html">Events</a>
+            <a href="announcements.html">Announcements</a>
+            <a href="index.html#team">Our Team</a>
+            <a href="index.html#testimonials">Voices</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <a href="index.html#contact" class="shiny-glass-cta" style="padding: 0.8rem 1.8rem; font-size: 0.95rem;">Join
+            Us</a>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="journey-hero">
+            <div class="journey-hero-bg parallax-bg"></div>
+            <div class="container hero-content" style="max-width: 800px;">
+                <span class="hero-anim"
+                    style="display: block; font-family: var(--font-hero); font-size: 0.9rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 2rem; opacity: 0.6;">The
+                    Path of Awakening</span>
+                <h1 class="hero-title hero-anim" style="font-size: clamp(3.5rem, 8vw, 6rem); margin-bottom: 2rem;">
+                    <span class="vibrant-text">Anya's</span> Journey.
+                </h1>
+                <p class="hero-subtext hero-anim">From the bustling noise of the physical world to the profound silence
+                    of true energetic alignment. Explore the roots of a spiritual visionary.</p>
+            </div>
+        </section>
+
+        <!-- First Split Section: Spirituality & Background -->
+        <section class="section-spacing container">
+            <div class="split-content reveal-stagger">
+                <div class="split-image">
+                    <img class="parallax-img"
+                        src="https://images.unsplash.com/photo-1520038410233-7141be7e6f97?q=80&w=1200&auto=format&fit=crop"
+                        alt="Meditation in nature">
+                </div>
+                <div class="split-text">
+                    <h2 class="split-title">The Call to <span class="vibrant-teal">Spirituality</span></h2>
+                    <p class="split-desc">
+                        Anya's path didn't begin in a monastery orashram. It began as a profound internal calling amidst
+                        an ordinary existence, a whisper that eventually became a roar. Seeking deeper meaning, she
+                        embarked on a transformational odyssey across the sacred sights of Bali, the ashrams of India,
+                        and the ancient ruins of Greece.
+                    </p>
+                    <p class="split-desc">
+                        Immersed in indigenous traditions and modern somatic practices, she learned to bridge the gap
+                        between ancient wisdom and contemporary existence, establishing a deeply grounded approach to
+                        spiritual awakening.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Second Split Section: Tarot & Insight -->
+            <div class="split-content reverse reveal-stagger">
+                <div class="split-image">
+                    <img class="parallax-img"
+                        src="https://images.unsplash.com/photo-1632516421996-01d7827e7d3e?q=80&w=1200&auto=format&fit=crop"
+                        alt="Tarot cards on a beautiful table">
+                </div>
+                <div class="split-text">
+                    <h2 class="split-title">Divination & <span class="vibrant-pink">Tarot</span></h2>
+                    <p class="split-desc">
+                        More than just reading cards, Anya approaches Tarot as a profound psychological mirror. It
+                        accelerates the breaking down of subconscious barriers, serving as an intuitive blueprint for
+                        the soul's current terrain.
+                    </p>
+                    <p class="split-desc">
+                        Her readings weave together archetypal psychology and energetic channelling, providing profound
+                        clarity and actionable wisdom for those navigating life's most complex transitions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Third Split Section: Healing & Somatics -->
+            <div class="split-content reveal-stagger">
+                <div class="split-image">
+                    <img class="parallax-img"
+                        src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop"
+                        alt="Sound healing and spiritual practice">
+                </div>
+                <div class="split-text">
+                    <h2 class="split-title">Energetic <span class="vibrant-blue">Healing</span></h2>
+                    <p class="split-desc">
+                        Anya is a master practitioner of somatic breathwork and vibrational healing. She believes that
+                        the body holds the score, keeping the memories and traumas that the mind attempts to forget.
+                    </p>
+                    <p class="split-desc">
+                        By guiding breath patterns and utilizing frequency alchemy, Anya creates a safe, expansive
+                        container that allows stagnant energy to move, releasing deep-seated blocks and opening the
+                        heart to a frequency of profound love and acceptance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="reveal" style="text-align: center; max-width: 800px; margin: 10rem auto 5rem;">
+                <h2
+                    style="font-family: var(--font-serif); font-style: italic; font-size: 3.5rem; color: var(--text-dark); margin-bottom: 2rem;">
+                    Creating <span class="vibrant-teal">Retreats</span></h2>
+                <p
+                    style="font-size: 1.25rem; line-height: 1.8; color: var(--text-dark); opacity: 0.8; margin-bottom: 3rem;">
+                    Today, Anya pours her decade of intensive learning and practice into curating the flagship
+                    experiences for SSC Events. Her vision is to create sanctuaries where others can shed the layers of
+                    societal conditioning and <i>re-bloom</i> into their truest, most authentic selves.
+                </p>
+                <a href="events.html" class="shiny-glass-cta" style="padding: 1.2rem 3rem;">Join Anya on Retreat <span
+                        style="font-size: 1.2rem;">&rarr;</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 4rem 0; text-align: center; opacity: 0.6;">
+        <p>&copy; 2026 RE-BLOOM. All rights vibrant.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Hero Animations
+            gsap.from(".hero-anim", {
+                y: 50,
+                opacity: 0,
+                filter: "blur(10px)",
+                stagger: 0.2,
+                duration: 1.5,
+                ease: "power4.out",
+                delay: 0.5
+            });
+
+            // Split Content Stagger Animations
+            gsap.utils.toArray('.reveal-stagger').forEach(section => {
+                const img = section.querySelector('.split-image');
+                const textElements = section.querySelectorAll('.split-title, .split-desc');
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 75%",
+                    }
+                });
+
+                tl.from(img, {
+                    x: section.classList.contains('reverse') ? 50 : -50,
+                    opacity: 0,
+                    scale: 0.95,
+                    duration: 1.2,
+                    ease: "back.out(1.2)"
+                })
+                    .from(textElements, {
+                        y: 30,
+                        opacity: 0,
+                        stagger: 0.15,
+                        duration: 1,
+                        ease: "power3.out"
+                    }, "-=0.8");
+            });
+
+            // Parallax Image Effect inside elements
+            gsap.utils.toArray('.parallax-img').forEach(img => {
+                gsap.to(img, {
+                    yPercent: -15, // Move the image up slowly inside its container
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: img.parentElement,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
+            });
+
+            // Background Hero Parallax
+            gsap.to(".parallax-bg", {
+                yPercent: 30,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".journey-hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
