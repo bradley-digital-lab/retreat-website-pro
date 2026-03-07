@@ -1080,7 +1080,7 @@ h2 {
 
     .testimonials-overflow {
         padding: 5rem 0 !important;
-        min-height: auto !important;
+        overflow: hidden !important;
     }
 
     .elegant-slider {
@@ -1088,37 +1088,25 @@ h2 {
     }
 
     .elegant-card {
-        width: 80vw !important;
-        max-width: 320px !important;
-        min-height: 250px !important;
-        padding: 2rem 1.75rem !important;
+        width: 260px !important;
+        max-width: 80vw !important;
+        min-height: 200px !important;
+        padding: 1.5rem !important;
         flex-shrink: 0 !important;
-        scroll-snap-align: center !important;
     }
 
     .elegant-card p {
-        font-size: 1.15rem !important;
-        margin-bottom: 2rem !important;
+        font-size: 1.05rem !important;
+        margin-bottom: 1.5rem !important;
     }
 
     .elegant-track {
         flex-direction: row !important;
-        gap: 1.5rem !important;
-        width: 100vw !important;
-        margin-left: -1.5rem;
-        /* pulls it to bleed left */
-        padding: 0 1.5rem 3rem 1.5rem !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
-        scroll-padding: 0 1.5rem !important;
-        -webkit-overflow-scrolling: touch !important;
-        scrollbar-width: none !important;
-        /* Hide scrollbar in Firefox */
-    }
-
-    .elegant-track::-webkit-scrollbar {
-        display: none !important;
-        /* Hide scrollbar in Chrome/Safari */
+        gap: 2rem !important;
+        width: max-content !important;
+        margin-left: 0;
+        padding: 0 1.5rem !important;
+        overflow-x: visible !important;
     }
 
     .image-reveal-mask {

@@ -128,9 +128,9 @@ window.addEventListener('load', () => {
         });
     });
 
-    // 5. Elegant Testimonial Slider: Silk Float (Desktop & Tablets)
+    // 5. Elegant Testimonial Slider: Silk Float (Desktop, Tablets & Mobile)
 
-    mm.add("(min-width: 800px)", () => {
+    mm.add("all", () => {
         const elegantTrack = document.querySelector('.elegant-track');
         if (elegantTrack) {
             const horizontalWidth = elegantTrack.scrollWidth - window.innerWidth;
@@ -175,20 +175,8 @@ window.addEventListener('load', () => {
         }
     });
 
-    // Mobile & Tablet specific layout reveal: Prevent massive cards taking over
+    // Mobile specific layout reveal
     mm.add("(max-width: 799px)", () => {
-        gsap.utils.toArray(".elegant-card").forEach(card => {
-            gsap.fromTo(card,
-                { opacity: 0, y: 30, scale: 0.98 },
-                {
-                    opacity: 1, y: 0, scale: 1, duration: 1, ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: card, start: "top 95%",
-                        toggleActions: "play none none none"
-                    }
-                }
-            );
-        });
 
         // Disable heavy parallax on mobile for better performance/UX
         gsap.utils.toArray(".image-reveal-mask img").forEach(img => {
