@@ -1036,8 +1036,10 @@ h2 {
 
     /* Hero Responsive */
     .hero {
-        padding-top: 0;
-        height: 100svh !important;
+        padding-top: 8rem !important;
+        padding-bottom: 4rem !important;
+        height: auto !important;
+        min-height: 80svh !important;
         display: flex;
         align-items: center;
         justify-content: center;
