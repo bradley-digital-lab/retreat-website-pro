@@ -282,9 +282,9 @@ const events = [
 ];
 
 events.forEach(e => {
-  let locationBadge = e.location ? '<div class="meta-badge">' + e.location + '</div>' : '';
-  let descHtml = e.desc.map(p => '<p class="desc-text">' + p + '</p>').join('\\n          ');
-  let featuresHtml = e.features.map(f => '<li>' + f + '</li>').join('\\n            ');
+  let locationBadge = e.location ? `<div class="meta-badge">${e.location}</div>` : '';
+  let descHtml = e.desc.map(p => `<p class="desc-text">${p}</p>`).join('\n          ');
+  let featuresHtml = e.features.map(f => `<li>${f}</li>`).join('\n            ');
 
   let output = template
     .replace(/__TITLE__/g, e.title)
