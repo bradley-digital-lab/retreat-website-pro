@@ -939,19 +939,19 @@ h2 {
 /* --- Responsiveness System (Premium Overhaul) --- */
 
 .container {
-    width: min(100% - 4rem, 1300px);
+    width: min(100% - 6rem, 1300px);
     margin: 0 auto;
 }
 
 @media (max-width: 1024px) {
     .container {
-        width: min(100% - 3rem, 1200px);
+        width: min(100% - 4rem, 1200px);
     }
 }
 
 @media (max-width: 768px) {
     .container {
-        width: min(100% - 2rem, 1200px);
+        width: min(100% - 3rem, 1200px);
     }
 
     :root {
@@ -1055,12 +1055,12 @@ h2 {
     }
 
     section {
-        padding: var(--section-spacing) 0 !important;
+        padding: var(--section-spacing) 0;
     }
 
     .reveal,
     .reveal-stagger {
-        margin-bottom: var(--section-spacing) !important;
+        margin-bottom: var(--section-spacing);
     }
 
 
@@ -1088,7 +1088,7 @@ h2 {
         flex-direction: column !important;
         gap: 2rem !important;
         width: 100% !important;
-        padding: 0 !important;
+        padding: 0 1.5rem !important;
     }
 
     .image-reveal-mask {
