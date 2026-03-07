@@ -54,6 +54,9 @@ const template = `<!DOCTYPE html>
       <a href="index.html#testimonials">Voices</a>
       <a href="index.html#contact">Contact</a>
     </div>
+    <div class="menu-trigger">
+      <span>&#9776;</span>
+    </div>
     <a href="index.html#contact" class="shiny-glass-cta" style="padding: 0.8rem 1.8rem; font-size: 0.95rem;">Join Us</a>
   </nav>
 

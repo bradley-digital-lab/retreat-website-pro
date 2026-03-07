@@ -13,6 +13,28 @@ window.addEventListener('load', () => {
 
     let mm = gsap.matchMedia();
 
+    // 0. Mobile Menu Logic
+    const menuTrigger = document.querySelector('.menu-trigger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuTrigger && navLinks) {
+        menuTrigger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.contains('active');
+            menuTrigger.innerHTML = isOpen ? '<span>&times;</span>' : '<span>&#9776;</span>';
+            // Sync GSAP on layout change
+            setTimeout(() => ScrollTrigger.refresh(), 550);
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuTrigger.innerHTML = '<span>&#9776;</span>';
+            });
+        });
+    }
+
     // 1. Hero Entrance Sequence - Refined for "opacity: 0" CSS
     const heroTl = gsap.timeline({
         defaults: { ease: "expo.out", duration: 1.8 }
@@ -153,19 +175,24 @@ window.addEventListener('load', () => {
         }
     });
 
-    // Mobile specific layout reveal
+    // Mobile & Tablet specific layout reveal: Prevent massive cards taking over
     mm.add("(max-width: 799px)", () => {
         gsap.utils.toArray(".elegant-card").forEach(card => {
             gsap.fromTo(card,
-                { opacity: 0, y: 40 },
+                { opacity: 0, y: 30, scale: 0.98 },
                 {
-                    opacity: 1, y: 0, duration: 1, ease: "power2.out",
+                    opacity: 1, y: 0, scale: 1, duration: 1, ease: "power2.out",
                     scrollTrigger: {
-                        trigger: card, start: "top 90%",
+                        trigger: card, start: "top 95%",
                         toggleActions: "play none none none"
                     }
                 }
             );
+        });
+
+        // Disable heavy parallax on mobile for better performance/UX
+        gsap.utils.toArray(".image-reveal-mask img").forEach(img => {
+            gsap.set(img, { y: 0, scale: 1 });
         });
     });
 
