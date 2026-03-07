@@ -94,9 +94,9 @@
 
         <style>
           .floating-hero-container {
+            perspective: 2000px;
             position: relative;
             z-index: 20;
-            /* Ensure images float ON TOP of the next section below */
             width: 100vw;
             left: 50%;
             transform: translateX(-50%);
@@ -107,57 +107,67 @@
             align-items: center;
             justify-content: center;
             overflow: visible;
-            /* Don't clip images floating outside */
-            /* smooth parallax entrance */
           }
 
-          .floating-hero-text-wrapper {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            max-width: 900px;
-            padding: 2rem;
-            pointer-events: none;
-            /* Let clicks pass through if images are behind */
-          }
-
-          .floating-title {
-            font-family: var(--font-hero);
-            font-size: clamp(4rem, 8vw, 6.5rem);
-            color: var(--text-dark);
-            line-height: 0.95;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-            pointer-events: auto;
-          }
-
-          .floating-desc {
-            color: var(--text-muted);
-            font-size: 1.25rem;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
-            pointer-events: auto;
-          }
-
-          .floating-cta {
-            pointer-events: auto;
-          }
-
-          .floating-img {
+          .floating-img-card {
             position: absolute;
             width: clamp(160px, 22vw, 320px);
             aspect-ratio: 4/5;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             z-index: 5;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
             transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
           }
 
-          /* Default Placements & Rotations */
+          .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+          }
+
+          .card-front,
+          .card-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+          }
+
+          .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .card-back {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem;
+            text-align: center;
+            transform: rotateY(180deg);
+          }
+
+          .card-back p {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: clamp(1rem, 1.5vw, 1.4rem);
+            line-height: 1.5;
+            color: var(--text-dark);
+            margin: 0;
+            opacity: 0.9;
+          }
+
+          /* Placements moved to card container */
           .img-1 {
             top: 10%;
             left: 8%;
@@ -220,15 +230,57 @@
         <!-- FLOATING HERO RETREAT: Surrender & Serenity -->
         <div class="floating-hero-container">
 
-          <!-- Floating Images -->
-          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
-            class="floating-img img-1 parallax-img-1" alt="Yoga">
-          <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?q=80&w=800&auto=format&fit=crop"
-            class="floating-img img-2 parallax-img-2" alt="Space">
-          <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=800&auto=format&fit=crop"
-            class="floating-img img-3 parallax-img-3" alt="Ocean Home">
-          <img src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?q=80&w=800&auto=format&fit=crop"
-            class="floating-img img-4 parallax-img-4" alt="Food">
+          <!-- 1. Yoga Image -->
+          <div class="floating-img-card img-1">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
+                  alt="Yoga">
+              </div>
+              <div class="card-back">
+                <p>"I am open to the abundance of the universe and trust the timing of my life."</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Space Image -->
+          <div class="floating-img-card img-2">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?q=80&w=800&auto=format&fit=crop"
+                  alt="Space">
+              </div>
+              <div class="card-back">
+                <p>"My energy is vibrant, my spirit is light, and I am exactly where I need to be."</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Ocean Image -->
+          <div class="floating-img-card img-3">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=800&auto=format&fit=crop"
+                  alt="Ocean Home">
+              </div>
+              <div class="card-back">
+                <p>"I trust the path my soul is calling me toward and move with grace and flow."</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Food Image -->
+          <div class="floating-img-card img-4">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?q=80&w=800&auto=format&fit=crop"
+                  alt="Plate">
+              </div>
+              <div class="card-back">
+                <p>"I am worthy of peace, joy, and deep connection in every moment."</p>
+              </div>
+            </div>
+          </div>
 
           <!-- Central Text -->
           <div class="floating-hero-text-wrapper hero-entrance">
@@ -473,12 +525,11 @@
         }
       );
 
-      // 3. Floating Images Entrance
-      gsap.fromTo(".floating-img",
-        { scale: 0.5, opacity: 0, y: 100, rotation: gsap.utils.wrap([-15, 15, -20, 20]) },
+      // 3. Floating Image Cards Entrance
+      gsap.fromTo(".floating-img-card",
+        { scale: 0.5, opacity: 0, y: 100 },
         {
           scale: 1, opacity: 1, y: 0,
-          rotation: gsap.utils.wrap([-8, 12, 6, -10]),
           duration: 1.8,
           stagger: 0.2,
           ease: "back.out(1.2)",
@@ -489,10 +540,38 @@
         }
       );
 
-      // 4. Subtle Idle Float Animation
-      gsap.to(".floating-img", {
+      // 4. Affirmation Flip Logic
+      const cards = document.querySelectorAll('.floating-img-card');
+      cards.forEach(card => {
+        const inner = card.querySelector('.card-inner');
+        let isFlipped = false;
+
+        card.addEventListener('click', () => {
+          if (isFlipped) return; // Prevent double trigger
+
+          isFlipped = true;
+          // Flip 180
+          gsap.to(inner, {
+            rotateY: 180,
+            duration: 0.8,
+            ease: "back.out(1.2)"
+          });
+
+          // Flip back after 5 seconds
+          gsap.delayedCall(5, () => {
+            gsap.to(inner, {
+              rotateY: 0,
+              duration: 0.8,
+              ease: "expo.out"
+            });
+            setTimeout(() => { isFlipped = false; }, 800);
+          });
+        });
+      });
+
+      // 5. Subtle Idle Float Animation
+      gsap.to(".floating-img-card", {
         y: "+=20",
-        rotation: "+=4",
         duration: 4,
         ease: "sine.inOut",
         yoyo: true,
