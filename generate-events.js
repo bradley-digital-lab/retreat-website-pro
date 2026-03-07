@@ -141,30 +141,29 @@ const events = [
   {
     fileName: 'event-recode.html',
     title: 'Recode & Reconnect',
-    subtitle: 'Identify and reprogramme the internal codes and patterns that are no longer serving you.',
-    date: 'June 14th 2026',
-    location: 'Hebden Bridge, UK',
+    subtitle: 'Awaken the Inner Child Within',
+    date: 'Date: TBC',
+    location: 'West Yorkshire',
     type: 'Transformational Workshop Day',
     heroImg: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2000&auto=format&fit=crop',
     img1: 'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=1200&auto=format&fit=crop',
     img2: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop',
     themeColor: 'var(--vibrant-teal)',
     desc: [
-      'Recode & Reconnect is a powerful workshop day designed to help you identify and reprogramme the internal codes and patterns that are no longer serving you.',
-      'Through conscious awareness and guided practices, you will explore how patterns stored in the subconscious mind shape your reality and influence the choices you make in life.',
-      'This workshop will guide you through understanding how these patterns were formed and how you can begin consciously rewriting them, creating new pathways aligned with your truth, your power, and the life you wish to create.',
-      'This is a space for reflection, awareness, and transformation.'
+      'Recode & Reconnect is a transformative one-day workshop designed to help you return to the inner child while learning how to consciously reprogram subconscious beliefs that were formed in early life.',
+      'Much of who we are — our reactions, patterns, habits, and self-beliefs — was coded before we had conscious choice. In this experience, you’ll gently uncover where those beliefs originated, break down the emotional and neurological pattern, and learn how to recode the subconscious mind in a way that creates lasting change.',
+      'Through guided inner-child journeys, belief-mapping, creative expression, embodiment practices, and conscious reprogramming techniques, you’ll move from awareness into true integration — not just understanding your patterns, but transforming them.',
+      'Recode & Reconnect is both gentle and powerful — blending play, depth, neuroscience-informed belief work, and soul-led healing. A space to soften, remember, and re-write the internal code you live from.'
     ],
-    featuresHeading: ['What You', 'Will Experience'],
+    featuresHeading: ['This Workshop Is', 'For Those Who Feel Called To'],
     features: [
-      'Understanding subconscious programming',
-      'Identifying internal codes and belief patterns',
-      'Tools to begin recoding limiting patterns',
-      'Conscious awareness practices',
-      'Reflection and integration',
-      'Connection with others on a path of personal transformation'
+      'Reconnect with their inner child in a safe, nurturing way',
+      'Understand how subconscious beliefs are formed and stored',
+      'Break old emotional and behavioural loops at the root',
+      'Consciously recode beliefs to support clarity, safety, confidence, and self-trust',
+      'Leave with practical tools that continue working long after the workshop ends'
     ],
-    conclusion: 'Spaces are limited',
+    conclusion: '10:00am – 5:00pm',
     button: 'Reserve Your Place'
   },
   {
