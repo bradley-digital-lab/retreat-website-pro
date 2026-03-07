@@ -12,6 +12,41 @@
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Immediate preloader to prevent flash */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .loader-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--vibrant-pink);
+            border-radius: 50%;
+            margin: 0 4px;
+            animation: dotPulse 1.5s infinite ease-in-out;
+        }
+
+        @keyframes dotPulse {
+
+            0%,
+            100% {
+                transform: scale(0.3);
+                opacity: 0.2;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
         /* Specific styles for details page */
         .hero-retreat-img {
             position: absolute;
@@ -305,6 +340,11 @@
 </head>
 
 <body>
+    <div id="preloader">
+        <div class="loader-dot" style="animation-delay: 0s"></div>
+        <div class="loader-dot" style="animation-delay: 0.2s"></div>
+        <div class="loader-dot" style="animation-delay: 0.4s"></div>
+    </div>
     <div class="mesh-bg"></div>
 
     <nav class="glass">
@@ -672,11 +712,21 @@
         // Initial Entrance Animations to override global loading opacity
         gsap.to("nav", { opacity: 1, duration: 1.2, ease: "power3.out" });
 
+        // Ensure preloader clears
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => preloader.style.display = 'none', 800);
+            }
+        });
+
         const heroTl = gsap.timeline({
             defaults: { ease: "expo.out", duration: 1.8 }
         });
 
         heroTl
+            .to(".hero-title", { opacity: 1, duration: 0.1 }) // Ensure title container is visible
             .fromTo(".hero-line",
                 { y: 80, opacity: 0, scale: 0.85, filter: "blur(25px)", rotationX: -15 },
                 { y: 0, opacity: 1, scale: 1, filter: "blur(0px)", rotationX: 0, duration: 2.5, ease: "power4.out", stagger: 0.25 }
