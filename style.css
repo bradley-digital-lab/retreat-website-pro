@@ -961,8 +961,8 @@ h2 {
 
     /* Mobile Floating Nav */
     nav {
-        top: auto !important;
-        bottom: 1.5rem !important;
+        top: 1rem !important;
+        bottom: auto !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         width: var(--nav-pill-width) !important;
@@ -971,14 +971,15 @@ h2 {
         border-radius: 100px !important;
         justify-content: space-between !important;
         z-index: 5000 !important;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2) !important;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
     }
 
     .nav-links {
         position: fixed;
-        bottom: 6.5rem;
+        top: 5.5rem;
         left: 50%;
-        transform: translateX(-50%) translateY(20px);
+        transform: translateX(-50%) translateY(-20px);
         width: calc(100% - 2rem);
         max-width: 400px;
         background: rgba(255, 255, 255, 0.9);

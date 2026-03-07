@@ -66,7 +66,7 @@
         }
 
         .retreat-header {
-            padding-top: 15rem;
+            padding-top: clamp(8rem, 15vw, 15rem);
             padding-bottom: 5rem;
             text-align: left;
         }
@@ -190,6 +190,11 @@
         }
 
         @media (max-width: 900px) {
+            .retreat-header {
+                padding-top: 8rem;
+                padding-bottom: 3rem;
+            }
+
             .content-grid {
                 grid-template-columns: 1fr;
             }
@@ -199,7 +204,12 @@
             }
 
             .details-glass {
-                padding: 2.5rem;
+                padding: 1.5rem;
+            }
+
+            .experience-block {
+                gap: 2rem !important;
+                margin-bottom: 5rem !important;
             }
 
             .gallery-item:nth-child(n) {
