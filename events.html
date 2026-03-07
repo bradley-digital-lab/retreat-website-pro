@@ -167,6 +167,33 @@
             opacity: 0.9;
           }
 
+          .floating-hero-text-wrapper {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 2rem;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .hero-text-anim {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+
+          .floating-desc {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            pointer-events: auto;
+            max-width: 600px;
+          }
+
           /* Placements moved to card container */
           .img-1 {
             top: 10%;
@@ -316,8 +343,7 @@
             </div>
 
             <div class="hero-text-anim">
-              <a href="retreat-surrender.html" class="shiny-glass-cta floating-cta"
-                style="background: var(--text-dark); color: white; border: none; padding: 1.2rem 3rem;">
+              <a href="retreat-surrender.html" class="shiny-glass-cta floating-cta" style="pointer-events: auto;">
                 Explore Sanctuary <span style="font-size: 1.2rem;">&rarr;</span>
               </a>
             </div>
