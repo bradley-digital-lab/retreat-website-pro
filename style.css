@@ -1046,8 +1046,8 @@ h2 {
     }
 
     .hero-title {
-        font-size: 2.8rem !important;
-        line-height: 1.2 !important;
+        font-size: 3.8rem !important;
+        line-height: 1.1 !important;
     }
 
     .hero-subtext {
@@ -1162,7 +1162,8 @@ h2 {
     }
 
     .hero-title {
-        font-size: 2.4rem !important;
+        font-size: 3.2rem !important;
+        line-height: 1.1 !important;
     }
 }
 
