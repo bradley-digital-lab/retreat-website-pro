@@ -25,6 +25,12 @@
     --radius-lg: 32px;
     --radius-md: 16px;
 
+    /* Feel Good Spacing System */
+    --section-spacing: clamp(5rem, 12vw, 10rem);
+    --inner-gap: clamp(2rem, 5vw, 5rem);
+    --block-gap: clamp(1.5rem, 3vw, 3rem);
+    --nav-pill-width: min(calc(100% - 2.5rem), 420px);
+
     --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -959,13 +965,13 @@ h2 {
         bottom: 1.5rem !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
-        width: min(calc(100% - 2rem), 400px) !important;
+        width: var(--nav-pill-width) !important;
         height: 64px !important;
-        padding: 0 1rem !important;
+        padding: 0 1.25rem !important;
         border-radius: 100px !important;
         justify-content: space-between !important;
         z-index: 5000 !important;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2) !important;
     }
 
     .nav-links {
@@ -1044,13 +1050,24 @@ h2 {
     .hero-subtext {
         font-size: 1.05rem !important;
         line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
     }
+
+    section {
+        padding: var(--section-spacing) 0 !important;
+    }
+
+    .reveal,
+    .reveal-stagger {
+        margin-bottom: var(--section-spacing) !important;
+    }
+
 
     /* Grid & Layout Fixes */
     .grid,
     .retreat-group {
         grid-template-columns: 1fr !important;
-        gap: 2rem !important;
+        gap: var(--inner-gap) !important;
     }
 
     .retreat-card {

@@ -241,15 +241,35 @@
               aspect-ratio: 4/5;
             }
 
+            .img-1 {
+              top: 8%;
+              left: 8%;
+              width: 130px;
+            }
+
+            .img-2 {
+              top: 18%;
+              right: 8%;
+              width: 110px;
+            }
+
+            .img-3 {
+              bottom: 8%;
+              left: 8%;
+              width: 150px;
+              aspect-ratio: 4/5;
+            }
+
             .img-4 {
-              bottom: 15%;
-              right: 5%;
-              width: 140px;
+              bottom: 12%;
+              right: 8%;
+              width: 130px;
             }
 
             .floating-hero-container {
-              min-height: 700px;
-              height: 85vh;
+              min-height: 550px;
+              height: 75vh;
+              margin-bottom: 4rem;
             }
           }
         </style>
@@ -311,8 +331,7 @@
 
           <!-- Central Text -->
           <div class="floating-hero-text-wrapper hero-entrance">
-            <div class="hero-badge-anim"
-              style="margin-bottom: 5.5rem; transform: translateY(-2rem); display: flex; justify-content: center;">
+            <div class="hero-badge-anim" style="margin-bottom: 2rem; display: flex; justify-content: center;">
               <a href="retreat-surrender.html" class="retreat-badge flagship-glass"
                 style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(25px) saturate(180%); -webkit-backdrop-filter: blur(25px) saturate(180%); color: var(--text-dark); border: 1px solid rgba(255, 255, 255, 0.4); font-weight: 800; padding: 0.8rem 2.5rem; border-radius: 0px; letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.85rem; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: inline-flex; align-items: center; gap: 0.8rem; border-bottom: 2px solid rgba(255,255,255,0.2); text-decoration: none; transition: all 0.3s ease;">
                 <span style="font-size: 1.1rem;">✦</span> Flagship Journey</a>
@@ -320,26 +339,31 @@
 
             <div class="hero-text-anim">
               <h2 class="hero-title"
-                style="pointer-events: auto; margin-bottom: 1.5rem; font-size: clamp(4rem, 8vw, 6.5rem); line-height: 0.95;">
+                style="pointer-events: auto; margin-bottom: 1rem; font-size: clamp(4rem, 8vw, 6.5rem); line-height: 0.95;">
                 <span style="white-space: nowrap;">Serenity &</span><br><span class="vibrant-teal">Surrender.</span>
               </h2>
             </div>
 
             <div class="hero-text-anim">
-              <p class="floating-desc">
+              <p class="floating-desc" style="margin-bottom: 2rem;">
                 Aegean horizons and white-washed tranquility. Our signature experience designed for absolute, profound
                 recalibration.
               </p>
             </div>
 
-            <div class="hero-text-anim" style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 3rem;">
-              <div><strong
-                  style="display:block; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase;">Dates</strong><span
-                  style="font-size:1.1rem; color: var(--text-dark); font-weight: 600;">SEP 2026</span></div>
-              <div style="width: 1px; height: 35px; background: rgba(0,0,0,0.1);"></div>
-              <div><strong
-                  style="display:block; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase;">Availability</strong><span
-                  style="font-size:1.1rem; color: var(--text-dark); font-weight: 600;">15 Spots</span></div>
+            <div class="hero-text-anim"
+              style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 2.5rem;">
+              <div style="text-align: center;">
+                <strong
+                  style="display:block; font-size: 0.75rem; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem;">Dates</strong>
+                <span style="font-size:1.1rem; color: var(--text-dark); font-weight: 700;">SEP 2026</span>
+              </div>
+              <div style="width: 1px; height: 35px; background: rgba(0,0,0,0.1); align-self: center;"></div>
+              <div style="text-align: center;">
+                <strong
+                  style="display:block; font-size: 0.75rem; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.4rem;">Availability</strong>
+                <span style="font-size:1.1rem; color: var(--text-dark); font-weight: 700;">15 Spots</span>
+              </div>
             </div>
 
             <div class="hero-text-anim">
@@ -388,7 +412,7 @@
               Curations</span>
 
             <div class="filter-controls reveal"
-              style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; width: 100%;">
+              style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 3rem; width: 100%;">
               <button class="filter-btn active" data-filter="all">All</button>
               <button class="filter-btn" data-filter="retreats">Retreats</button>
               <button class="filter-btn" data-filter="workshops">Workshops</button>
