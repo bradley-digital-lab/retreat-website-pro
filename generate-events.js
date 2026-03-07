@@ -254,29 +254,30 @@ const events = [
   {
     fileName: 'event-wildlings-wander.html',
     title: 'Where the Wildlings Wander',
-    subtitle: 'A nature-based gathering for families seeking deeper connection with the natural world and each other.',
-    date: 'October 2027',
-    location: 'Italy',
-    type: 'Family Nature Gathering',
+    subtitle: 'An Immersive Nature Retreat for Parents and Children',
+    date: 'Sept & Oct 2027',
+    location: 'Location TBC',
+    type: 'Immersive Nature Retreat',
     heroImg: 'https://images.unsplash.com/photo-1498598457418-36ef20772bb9?q=80&w=2000&auto=format&fit=crop',
     img1: 'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1200&auto=format&fit=crop',
     img2: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=80&w=1200&auto=format&fit=crop',
     themeColor: 'var(--vibrant-teal)',
     desc: [
-      'Where the Wildlings Wander is a nature-based gathering for families seeking deeper connection with the natural world and each other.',
-      'Set within the beautiful landscapes of Italy, this experience invites children and parents to step away from modern distractions and rediscover the magic of outdoor exploration.',
-      'Through play, music, storytelling, and shared adventure, families will create meaningful memories while nurturing curiosity, creativity, and connection to nature.',
-      'A joyful space where young wildlings can roam freely, learn, and grow.'
+      'Step into a magical, nature-filled world where parents and children reconnect with each other, their emotions, and the rhythms of Mother Earth. Where the Wildlings Wander is a gentle, immersive retreat designed to support deep connection.',
+      'This retreat is for parents, carers, and little ones under 8 years old. Give yourself the space to slow down, reconnect, and rediscover the wonder in everyday moments, all while guiding your child to feel seen, heard, and emotionally resilient.',
+      'Venue: A serene, nature-rich location with outdoor spaces safe for little ones to explore freely. (Can provide more details once location is finalized.)',
+      'Dates include weekends in Sept & Oct 2027 (exact dates to be confirmed).'
     ],
-    featuresHeading: ['What You', 'Will Experience'],
+    featuresHeading: ['What Is', 'Included'],
     features: [
-      'Nature exploration and outdoor adventure',
-      'Music, storytelling, and creative play',
-      'Community connection for families',
-      'Encouraging curiosity and imagination',
-      'Time to slow down and reconnect with nature'
+      'Guided outdoor adventures in forests and meadows',
+      'Mindfulness and grounding sessions tailored for little children',
+      'Creative workshops: nature crafts, storytelling, and imaginative play',
+      'Gentle yoga and movement sessions for families',
+      'Connection circles for parents to share, learn, and recharge',
+      'Healthy, nourishing snacks and drinks throughout the day'
     ],
-    conclusion: 'Wander together.',
+    conclusion: 'Limited Spaces Available',
     button: 'Join the Gathering'
   }
 ];
