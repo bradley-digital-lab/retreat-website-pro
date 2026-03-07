@@ -198,7 +198,7 @@ const events = [
   {
     fileName: 'event-renewal.html',
     title: 'Renewal & Rebirth Pregnancy Retreat',
-    subtitle: 'A nurturing retreat created for mothers preparing to welcome new life into the world.',
+    subtitle: 'A 4-night immersive natural pregnancy retreat held at the sacred grounds of Broughton Hall.',
     date: 'April 2027',
     location: 'Lake District, UK',
     type: 'Pregnancy Retreat',
@@ -207,26 +207,29 @@ const events = [
     img2: 'https://images.unsplash.com/photo-1507726425126-7bc0cd78546b?q=80&w=1200&auto=format&fit=crop',
     themeColor: 'var(--vibrant-pink)',
     desc: [
-      'Renewal & Rebirth is a nurturing retreat created for mothers preparing to welcome new life into the world.',
-      'Set within the peaceful surroundings of the Lake District, this gathering offers space for reflection, connection, and gentle preparation for pregnancy and birth.',
-      'Through guided sessions, supportive conversations, and shared experiences with other mothers, the retreat creates an environment where women can reconnect with their intuition, deepen their trust in their bodies, and explore a conscious and empowered approach to birth.',
-      'This is a space to honour the sacred journey of motherhood and prepare for the transition ahead.'
+      'Renewal & Rebirth is a 4-night immersive natural pregnancy retreat held at the sacred grounds of Broughton Hall, the same venue that hosted the New Earth Gathering.',
+      'This retreat is lovingly hosted by Maria, a natural doula, and Anya Lily, mother of two who has birthed both of her babies naturally at home. Together, they offer a deeply grounded, embodied and intuitive approach to pregnancy and birth—rooted in trust, physiology, and feminine wisdom.',
+      'This space is for women who feel called to slow down, tune in, and reconnect with the innate intelligence of their bodies and babies.',
+      'Set within acres of ancient land, Broughton Hall offers the perfect environment for renewal, rebirth, and remembrance—of your body, your power, and your innate knowing.',
+      '✨ Your body knows. You are supported. You are not alone.'
     ],
-    featuresHeading: ['What You', 'Will Experience'],
+    featuresHeading: ['🌿 What You \\n', 'Will Experience'],
     features: [
-      'Conscious pregnancy and birth preparation',
-      'Connection with other mothers',
-      'Guided reflection and supportive discussions',
-      'Time in nature for rest and nourishment',
-      'Strengthening trust in your body and intuition'
+      'Natural & physiological pregnancy and birth education',
+      'Preparation for natural birth (mind, body & spirit)',
+      'Releasing fear, conditioning and external narratives',
+      'Somatic, nervous system & embodiment practices',
+      'Sacred sharing circles & sisterhood connection',
+      'Time in nature for rest, reflection and renewal',
+      'A deeply supportive, non-judgemental space'
     ],
-    conclusion: 'Honour your journey.',
+    conclusion: 'Trust your innate power.',
     button: 'Reserve Your Place'
   },
   {
     fileName: 'event-dance.html',
     title: 'Dance with the Divine Feminine',
-    subtitle: 'Awaken and embody feminine energy through movement, expression, and sacred practices.',
+    subtitle: 'Welcoming the Wild Woman Home • July 2027',
     date: 'July 2027',
     location: 'Spain',
     type: 'Feminine Embodiment Retreat',
@@ -235,20 +238,23 @@ const events = [
     img2: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=1200&auto=format&fit=crop',
     themeColor: 'var(--vibrant-pink)',
     desc: [
-      'Dance with the Divine Feminine is an immersive retreat experience dedicated to awakening and embodying feminine energy.',
-      'Through movement, expression, and sacred practices, this retreat invites women to reconnect with their inner wisdom, creativity, and intuitive power.',
-      'Held in the warmth and beauty of Spain, this gathering creates space to explore the many expressions of the feminine — strength, softness, sensuality, intuition, and freedom.',
-      'Together we move, release, and reconnect with the deeper rhythm of the body and soul.'
+      'There is a place within you that has never been broken. A place that remembers how to soften… how to feel… how to create life, art, love, and magic with ease.',
+      'Dance with the Divine Feminine is a sacred, immersive retreat devoted to returning you home to your body, your sacral chakra, and the ancient feminine wisdom that lives within your bones.',
+      'Through movement, ritual, sisterhood, and deep rest, we gently unravel the layers of conditioning, shame, and inherited stories that have kept women small for generations.',
+      'Each day we flow between embodied dance, womb meditations, ancestral healing rituals, somatic practices, nature connection, ceremony, and nourishing rest.',
+      'Welcome home, wild woman.'
     ],
-    featuresHeading: ['What You', 'Will Experience'],
+    featuresHeading: ['We Gather', 'In Circle To'],
     features: [
-      'Embodied movement and expression',
-      'Feminine awakening practices',
-      'Creative exploration and self-expression',
-      'Deep connection with other women',
-      'A supportive space for personal transformation'
+      'Awaken the sacral chakra and restore creative life force',
+      'Heal and honour the womb space',
+      'Release ancestral and maternal line wounds',
+      'Reconnect with pleasure, sensuality, and softness',
+      'Move the body through dance as prayer',
+      'Be witnessed, held, and celebrated by sisterhood',
+      'Remember the wild, intuitive woman you have always been'
     ],
-    conclusion: 'Awaken your power.',
+    conclusion: 'A soft but powerful return to your truth.',
     button: 'Reserve Your Place'
   },
   {
