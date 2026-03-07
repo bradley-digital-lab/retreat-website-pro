@@ -1106,11 +1106,36 @@ h2 {
         overflow: hidden;
     }
 
-    .preorder-retreats .retreat-badge {
+    .preorder-retreats .retreat-group-title,
+    .preorder-retreats .filter-controls {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .filter-controls {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 0.4rem !important;
+        padding: 0 !important;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 0.2rem !important;
         font-size: 0.65rem !important;
-        padding: 0.3rem 0.6rem !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .preorder-retreats .retreat-badge {
+        font-size: 0.55rem !important;
+        padding: 0.5rem 0.8rem !important;
         top: 0.5rem !important;
         right: 0.5rem !important;
+        bottom: auto !important;
+        border-radius: 100px !important;
+        text-align: center !important;
+        line-height: 1.2 !important;
     }
 
     .retreat-card {
