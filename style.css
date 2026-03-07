@@ -1078,17 +1078,47 @@ h2 {
         transform: none !important;
     }
 
-    .elegant-card {
-        width: 100% !important;
-        padding: 2.5rem 1.5rem !important;
+    .testimonials-overflow {
+        padding: 5rem 0 !important;
         min-height: auto !important;
     }
 
+    .elegant-slider {
+        margin-top: 3rem !important;
+    }
+
+    .elegant-card {
+        width: 80vw !important;
+        max-width: 320px !important;
+        min-height: 250px !important;
+        padding: 2rem 1.75rem !important;
+        flex-shrink: 0 !important;
+        scroll-snap-align: center !important;
+    }
+
+    .elegant-card p {
+        font-size: 1.15rem !important;
+        margin-bottom: 2rem !important;
+    }
+
     .elegant-track {
-        flex-direction: column !important;
-        gap: 2rem !important;
-        width: 100% !important;
-        padding: 0 1.5rem !important;
+        flex-direction: row !important;
+        gap: 1.5rem !important;
+        width: 100vw !important;
+        margin-left: -1.5rem;
+        /* pulls it to bleed left */
+        padding: 0 1.5rem 3rem 1.5rem !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        scroll-padding: 0 1.5rem !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        /* Hide scrollbar in Firefox */
+    }
+
+    .elegant-track::-webkit-scrollbar {
+        display: none !important;
+        /* Hide scrollbar in Chrome/Safari */
     }
 
     .image-reveal-mask {
