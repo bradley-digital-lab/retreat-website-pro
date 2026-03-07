@@ -1067,10 +1067,50 @@ h2 {
 
 
     /* Grid & Layout Fixes */
-    .grid,
-    .retreat-group {
+    .grid {
         grid-template-columns: 1fr !important;
         gap: var(--inner-gap) !important;
+    }
+
+    .retreat-group {
+        gap: var(--inner-gap) !important;
+    }
+
+    .preorder-retreats {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        width: 100% !important;
+    }
+
+    .preorder-retreats .image-container {
+        height: 180px !important;
+    }
+
+    .preorder-retreats .card-content {
+        padding: 1rem !important;
+    }
+
+    .preorder-retreats h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .preorder-retreats p {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 1rem !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .preorder-retreats .retreat-badge {
+        font-size: 0.65rem !important;
+        padding: 0.3rem 0.6rem !important;
+        top: 0.5rem !important;
+        right: 0.5rem !important;
     }
 
     .retreat-card {
